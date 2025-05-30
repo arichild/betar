@@ -1,0 +1,103 @@
+<div class="ui-popup mfp-anim">
+  <div class="application-popup">
+    <div class="ui-popup-txt">
+      <div class="ui-popup-title">Оставьте заявку</div>
+      <div class="ui-popup-subtitle">Мы свяжемся с вами в ближайшее время</div>
+    </div>
+
+    <div class="ui-popup-form">
+      <form action="" class="ui-popup-validate">
+        <div class="ui-fields">
+          <div class="ui-field">
+            <input type="text" class="ui-input" placeholder="Имя" name="name" id="name">
+          </div>
+          <div class="ui-field">
+            <input type="text" class="ui-input phone-mask" placeholder="Телефон" name="phone" id="phone">
+          </div>
+          <div class="ui-field">
+            <input type="text" class="ui-input" placeholder="Ваш вопрос (по желанию)">
+          </div>
+        </div>
+
+        <div class="ui-checkbox">
+          <input autocomplete="off" type="checkbox" class="ui-checkbox-input" checked="" name="confidentiality" id="confidentiality">
+          <label for="confidentiality" class="ui-checkbox-label">
+            <span class="default-txt">
+              Я согласен с <a href="#">политикой конфиденциальности</a>.
+            </span>
+          </label>
+        </div>
+
+        <button class="ui-btn">Авторизоваться</button>
+      </form>
+    </div>
+  </div>
+
+  <button class="mfp-close">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20.3334 1.66686L1.66675 20.3334M20.3334 20.3333L1.66675 1.66675" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+
+
+  <script>
+    $(document).ready(function () {
+      let phone = document.querySelectorAll('.phone-mask')
+
+      if(phone.length) {
+        phone.forEach(element => {
+          IMask(element, {
+            mask: [
+              {
+                mask: '+{375} (00) 000 00 00',
+                startsWith: '375',
+                overwrite: true,
+                lazy: false,
+                placeholderChar: '_',
+              },
+              {
+                mask: '+{7} (000) 000 00 00',
+                startsWith: '7',
+                overwrite: true,
+                lazy: false,
+                placeholderChar: '_',
+              },
+              {
+                mask: '+0000000000000',
+                startsWith: '',
+                country: 'unknown'
+              }
+            ],
+
+            dispatch: function (appended, dynamicMasked) {
+              var number = (dynamicMasked.value + appended).replace(/\D/g, '');
+
+              return dynamicMasked.compiledMasks.find(function (m) {
+                return number.indexOf(m.startsWith) === 0;
+              });
+            }
+          })
+        });
+      }
+
+      $(".ui-popup-validate").validate({
+        errorElement: "span",
+
+        rules: {
+          name: {
+            required: true,
+            lettersonly: true,
+          },
+          phone: {
+            required: true,
+            phone: true,
+          },
+        },
+
+        submitHandler: function (form) {
+          showPopup()
+        },
+      });
+    });
+  </script>
+</div>

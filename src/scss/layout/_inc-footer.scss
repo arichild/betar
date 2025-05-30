@@ -10,7 +10,18 @@
   a {
     color: #F7F7F7;
     font-size: 14px;
+    transition: color .2s ease, border-color .2s ease, background-color .2s ease, color .2s ease;
+
+    &:hover {
+      color: #a5a8ad;
+    }
     // line-height: 1.4;
+  }
+
+  .ui-btn {
+    &:hover {
+      color: #2D88D6;
+    }
   }
 
   &-top {
@@ -47,10 +58,15 @@
         font-size: 15px;
 
         &.discount {
+          position: relative;
+          padding-right: 32px;
+
           img {
-            position: relative;
-            right: -8px;
-            top: 6px;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translate(0, -50%);
+            // top: 6px;
           }
         }
       }
@@ -107,10 +123,16 @@
     color: #A5A8AD;
     font-size: 14px;
     margin-top: 48px;
+    line-height: 1.2;
 
     a {
       color: #A5A8AD;
       font-size: 14px;
+      transition: color .2s ease;
+
+      &:hover {
+        color: #F7F7F7;
+      }
     }
 
     &-left {
@@ -136,6 +158,7 @@
 
   &-contact {
     margin-bottom: 32px;
+    line-height: 1.2;
 
     svg {
       width: 18px;
@@ -172,6 +195,7 @@
       display: block;
       font-size: 24px !important;
       margin-bottom: 12px;
+      line-height: 1.1;
     }
 
     &-time {
@@ -229,34 +253,109 @@
     }
   }
 
+  // @media(max-width: 1024.99px) {
+  //   &-top {
+  //     .ui-btn {
+  //       margin-bottom: 40px;
+  //     }
+
+  //     &-center {
+  //       max-width: none;
+  //       flex: none;
+  //       flex-grow: 1;
+  //       padding-left: 40px;
+  //       // ul {
+  //       //   max-width: 45%;
+
+  //       //   &:last-child {
+  //       //     max-width: 55%;
+  //       //   }
+  //       // }
+  //     }
+
+  //     &-left {
+  //       max-width: none;
+  //       flex: none;
+  //     }
+
+  //     &-right {
+  //       max-width: none;
+  //       flex: none;
+  //     }
+  //   }
+
+  //   &-contact {
+  //     margin-bottom: 50px;
+
+  //     &-title {
+  //       margin-bottom: 20px;
+  //     }
+  //   }
+
+  //   &-bottom {
+  //     &-left {
+  //       max-width: 508px;
+  //     }
+
+  //     &-right {
+  //       max-width: 354px;
+  //     }
+  //   }
+  // }
+
   @media(max-width: 1024.99px) {
+    padding-top: 60px;
+
     &-top {
+      flex-wrap: wrap;
+
       .ui-btn {
         margin-bottom: 40px;
+      }
+
+
+      &-left {
+        order: 1;
+        max-width: 40%;
+        width: 100%;
+        margin-bottom: 48px;
+        flex: none;
       }
 
       &-center {
         max-width: none;
         flex: none;
         flex-grow: 1;
-        padding-left: 40px;
-        // ul {
-        //   max-width: 45%;
+        order: 3;
+        padding-left: 0;
+        flex-grow: 0;
+        flex-direction: column;
+        width: 100%;
 
-        //   &:last-child {
-        //     max-width: 55%;
-        //   }
-        // }
-      }
+        ul {
+          max-width: none;
+          display: inline-block;
+          margin-bottom: 5px;
+          max-width: 500px;
 
-      &-left {
-        max-width: none;
-        flex: none;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+        li {
+          display: inline-block;
+          margin-right: 12px;
+          margin-bottom: 15px;
+        }
       }
 
       &-right {
-        max-width: none;
         flex: none;
+        order: 2;
+        max-width: 60%;
+        width: 100%;
+        margin-bottom: 48px;
       }
     }
 
@@ -267,9 +366,21 @@
         margin-bottom: 20px;
       }
     }
+
+    &-bottom {
+      margin-top: 33px;
+
+      &-left {
+        max-width: 400px;
+      }
+
+      &-right {
+        max-width: 284px;
+      }
+    }
   }
 
-  @media(max-width: 900.99px) {
+  @media(max-width: 768.99px) {
     padding-top: 60px;
 
     &-top {
@@ -368,7 +479,7 @@
     }
   }
 
-  @media(max-width: 552.99px) {
+  @media(max-width: 576.99px) {
     font-size: 12px;
     padding-top: 32px;
     padding-bottom: 32px;
@@ -469,6 +580,10 @@
           font-size: 12px;
           margin-bottom: 0;
         }
+      }
+
+      &-socials {
+        margin-right: 16px;
       }
 
       .social {

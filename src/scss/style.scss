@@ -3,6 +3,7 @@
 @import "./base/typography.scss";
 @import "./base/grid.scss";
 @import "./base/ui.scss";
+@import "./base/popup.scss";
 
 /* layout */
 @import "./layout/inc-header.scss";
@@ -23,6 +24,10 @@ html {
   font-size: 16px;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+
+  &.active {
+    overflow: hidden;
+  }
 }
 
 body {
@@ -33,8 +38,8 @@ body {
   font-family: $baseFont;
   font-weight: 400;
   font-size: 1rem;
-  line-height: 1.42;
-  color: #000;
+  line-height: 1.4;
+  color: #1D1E20;
   background-color: #fff;
 }
 
