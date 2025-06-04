@@ -282,6 +282,20 @@ span.error {
   color: #1D1E20;
 }
 
+.select2-dropdown {
+  top: 10px;
+  border-top: 1px solid #CFD2D7 !important;
+}
+
+.select2-container--open .select2-dropdown--below {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.select2-container--default.select2-container--open.select2-container--below .select2-selection--single, .select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
+  border-radius: 8px;
+}
+
 .ui-pagination {
   text-align: center;
   display: flex;
