@@ -1,4 +1,14 @@
 $( document ).ready(function() {
+  // select2
+  $('.ui-select').select2({
+    minimumResultsForSearch: -1,
+  });
+
+  $('.ui-select.sort').select2({
+    minimumResultsForSearch: -1,
+    placeholder: "Сортировать по",
+  });
+
   // popup
   $(document).on("click", ".mfp-link", function () {
     var a = $(this);
@@ -322,6 +332,31 @@ $( document ).ready(function() {
       } else {
         cards.forEach((card, index) => {
           if (index >= 4) card.classList.add('hidden')
+        })
+        e.target.textContent = 'Показать ещё'
+      }
+    })
+  })
+
+  // fav more cards
+  const btnShowFav = document.querySelectorAll('.show-fav')
+  btnShowFav.forEach(el => {
+    el.addEventListener('click', (e) => {
+      const parent = e.target.closest('.show-list')
+      const cards = parent.querySelectorAll('.ui-card')
+      const hiddenCards = parent.querySelectorAll('.show-list .hidden')
+
+      if (hiddenCards.length > 0) {
+        hiddenCards.forEach((card, index) => {
+          if (index < 16) card.classList.remove('hidden')
+        })
+
+        if (parent.querySelectorAll('.show-list .hidden').length === 0) {
+          e.target.textContent = 'Скрыть'
+        }
+      } else {
+        cards.forEach((card, index) => {
+          if (index >= 16) card.parentElement.classList.add('hidden')
         })
         e.target.textContent = 'Показать ещё'
       }

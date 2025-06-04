@@ -15,6 +15,11 @@
   -ms-flex-wrap: wrap;
   margin-left: -10px;
   margin-right: -10px;
+
+  @media(max-width: 1024.99px) {
+    margin-left: -5px;
+    margin-right: -5px;
+  }
 }
 
 .flex {
@@ -60,6 +65,11 @@
   width: 100%;
   padding-left: 10px;
   padding-right: 10px;
+
+  @media(max-width: 1024.99px) {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
 }
 
 .clear {
@@ -518,7 +528,7 @@
   }
 }
 
-@media (min-width: 1170.99px) {
+@media (min-width: 1200.99px) {
   .col-lg-1 {
     -ms-flex: 0 0 8.33333%;
     flex: 0 0 8.33333%;
@@ -593,7 +603,7 @@
 }
 
 /* 10-column */
-@media (min-width: 1170.99px) {
+@media (min-width: 1200.99px) {
   .col-xl-1 {
     flex: 0 0 10%;
     max-width: 10%;
