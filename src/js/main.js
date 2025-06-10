@@ -109,6 +109,26 @@ $( document ).ready(function() {
     $('html').toggleClass('active')
   });
 
+  // filter
+  $('.ui-btn.filter, .category-filter-close').on('click', () => {
+    $('.category-filter').toggleClass('active')
+    $('html').toggleClass('active')
+  });
+
+  const moreButton = $(".category-filter-more");
+  const items = $(".category-filter-list a");
+  const categoryList = $(".category-filter-list");
+  moreButton.on("click", function (e) {
+    items.each(function (index) {
+      if (index >= 7) {
+        $(this).toggleClass("hidden")
+      }
+    });
+
+    categoryList.toggleClass("active");
+    moreButton.text(moreButton.text() === "Показать еще" ? "Скрыть" : "Показать еще")
+  });
+
   // search
   const btn = $('.search-icon .close')
   const search = $('.header-middle-search input')
@@ -339,29 +359,32 @@ $( document ).ready(function() {
   })
 
   // fav more cards
-  const btnShowFav = document.querySelectorAll('.show-fav')
-  btnShowFav.forEach(el => {
-    el.addEventListener('click', (e) => {
-      const parent = e.target.closest('.show-list')
-      const cards = parent.querySelectorAll('.ui-card')
-      const hiddenCards = parent.querySelectorAll('.show-list .hidden')
+  // const btnShowFav = document.querySelectorAll('.show-fav')
 
-      if (hiddenCards.length > 0) {
-        hiddenCards.forEach((card, index) => {
-          if (index < 16) card.classList.remove('hidden')
-        })
+  // if(btnShowFav.length) {
+  //   btnShowFav.forEach(el => {
+  //     el.addEventListener('click', (e) => {
+  //       const parent = e.target.closest('.show-list')
+  //       const cards = parent.querySelectorAll('.ui-card')
+  //       const hiddenCards = parent.querySelectorAll('.show-list .hidden')
 
-        if (parent.querySelectorAll('.show-list .hidden').length === 0) {
-          e.target.textContent = 'Скрыть'
-        }
-      } else {
-        cards.forEach((card, index) => {
-          if (index >= 16) card.parentElement.classList.add('hidden')
-        })
-        e.target.textContent = 'Показать ещё'
-      }
-    })
-  })
+  //       if (hiddenCards.length > 0) {
+  //         hiddenCards.forEach((card, index) => {
+  //           if (index < 16) card.classList.remove('hidden')
+  //         })
+
+  //         if (parent.querySelectorAll('.show-list .hidden').length === 0) {
+  //           e.target.textContent = 'Скрыть'
+  //         }
+  //       } else {
+  //         cards.forEach((card, index) => {
+  //           if (index >= 16) card.parentElement.classList.add('hidden')
+  //         })
+  //         e.target.textContent = 'Показать ещё'
+  //       }
+  //     })
+  //   })
+  // }
 
   // header sticky
   const headerMiddle = document.querySelector(".header-sticky");

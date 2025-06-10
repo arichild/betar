@@ -128,13 +128,13 @@ span.error {
 .ui-checkbox-label::after {
   content: "";
   position: absolute;
-  top: 4px;
-  left: 4px;
-  z-index: 1;
-  width: 10px;
-  height: 5px;
-  border-left: 2px solid #fff;
-  border-bottom: 2px solid #fff;
+  left: 0;
+  top: 0;
+  background: url("../images/checked.svg");
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  background-size: 100%;
   opacity: 0;
   transition: opacity .15s,transform .15s
 }
@@ -151,12 +151,11 @@ span.error {
 
 .ui-checkbox-input:checked+.ui-checkbox-label::before {
   border-color: #2D88D6;
-  background-color: #2D88D6
+  // background-color: #2D88D6
 }
 
 .ui-checkbox-input:checked+.ui-checkbox-label::after {
   opacity: 1;
-  transform: rotate(-45deg)
 }
 
 .ui-checkbox-input.error+.ui-checkbox-label::before {
@@ -212,6 +211,10 @@ span.error {
   top: -9px;
 }
 
+.noUi-touch-area {
+  cursor: pointer;
+}
+
 .select2-container--default .select2-selection--single .select2-selection__arrow b {
   display: none !important;
 }
@@ -220,7 +223,7 @@ span.error {
   background-image: url("../images/arrow-select.svg");
   background-repeat: no-repeat;
   background-position: center;
-  height: 33px;
+  height: 100%;
   top: 0;
   right: 16px;
   width: 10px;
@@ -250,16 +253,23 @@ span.error {
 
 .select2-results__option {
   padding: 0 12px;
-  height: 33px;
+  height: 100%;
   line-height: 33px;
 }
 
+// .select2-container--default .select2-selection--single .select2-selection__rendered {
+//   line-height: 31px;
+// }
+
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-  line-height: 31px;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 
 .select2-container--default .select2-selection--single {
-  height: 33px;
+  height: 100%;
   border-radius: 8px;
   border: 1px solid #CFD2D7;
   transition: border-color .2s ease;
@@ -274,6 +284,7 @@ span.error {
   max-width: 200px;
   font-weight: 400;
   font-size: 14px;
+  height: 33px;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__placeholder {
@@ -300,19 +311,21 @@ span.error {
   text-align: center;
   display: flex;
   justify-content: center;
-  gap: 0 33px;
+  gap: 0 12px;
   height: 30px;
   align-items: center;
 
   &-links {
     text-align: center;
-    display: inline-block;
+    display: block;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.2;
     // margin-right: 5px;
     transition: color .2s ease-in-out;
     color: #A5A8AD;
+    width: 29px;
+    flex: 0 0 29px;
 
     svg {
       fill: #A5A8AD;
@@ -413,6 +426,17 @@ svg {
   line-height: 1;
   letter-spacing: -0.05em;
   margin: 0;
+
+  span {
+    font-size: 18px;
+    line-height: 1.3;
+    position: relative;
+    color: #A5A8AD;
+    letter-spacing: normal;
+    font-weight: 400;
+    top: -25px;
+    right: -8px;
+  }
 }
 
 .ui-header {
@@ -426,7 +450,13 @@ svg {
   }
 
   &.bottom {
-    align-items: flex-end
+    align-items: flex-end;
+  }
+
+  &.border-none {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 32px;
   }
 
   &-link {
@@ -458,6 +488,10 @@ svg {
 
 .ui-catalog {
   margin-bottom: 160px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 
   .splide__arrow--prev {
     left: -104px !important;
@@ -524,6 +558,10 @@ svg {
     justify-content: space-between;
     width: 100%;
     align-items: center;
+
+    &.right {
+      justify-content: flex-end;
+    }
 
     .tag {
       font-weight: 400;
@@ -784,6 +822,49 @@ svg {
   display: none;
 }
 
+.noUi-horizontal {
+  height: 2px !important;
+}
+
+.noUi-target {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.noUi-connect {
+  background: #2D88D6;
+}
+
+.noUi-horizontal .noUi-handle {
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+  right: 0 !important;
+  top: -4px !important;
+}
+
+.noUi-handle {
+  border: none !important;
+  background: #2D88D6 !important;
+  box-shadow: none !important;
+}
+
+.noUi-target {
+  background: #EAF5FF !important;
+}
+
+.noUi-handle:after, .noUi-handle:before {
+  content: none !important;
+}
+
+.noUi-tooltip {
+  display: none !important;
+}
+
+.noUi-horizontal .noUi-handle-lower {
+  right: -10px !important;
+}
+
 @media(max-width: 1600.99px) {
   .ui-catalog {
     .splide__arrow--next {
@@ -804,6 +885,12 @@ svg {
 @media(max-width: 1440.99px) {
   .ui-title {
     font-size: 40px;
+
+    span {
+      font-size: 16px;
+      top: -20px;
+      right: -5px;
+    }
   }
 
   .ui-breadcrumbs {
@@ -831,6 +918,12 @@ svg {
 @media(max-width: 1024.99px) {
   .ui-title {
     font-size: 32px;
+
+    span {
+      font-size: 14px;
+      top: -18px;
+      right: -3px;
+    }
   }
 
   .ui-input {
@@ -913,6 +1006,27 @@ svg {
 }
 
 @media(max-width: 768.99px) {
+  .select2-container--default .select2-selection--single .select2-selection__placeholder {
+    font-size: 12px;
+  }
+
+  .select2-container .select2-selection--single .select2-selection__rendered {
+    padding-left: 8px;
+  }
+
+  .select2-container--default .select2-selection--single {
+    border-radius: 6px;
+  }
+
+  .select2-results__option {
+    line-height: 31px;
+    font-size: 12px;
+  }
+
+  .select2-container--default .select2-selection--single .select2-selection__arrow {
+    right: 9px;
+  }
+
   .ui-breadcrumbs {
     padding: 20px 0;
 
@@ -932,6 +1046,12 @@ svg {
 
   .ui-title {
     font-size: 28px;
+
+    span {
+      font-size: 12px;
+      top: -17px;
+      right: -2px;
+    }
   }
 
   .ui-header {
@@ -995,8 +1115,25 @@ svg {
 }
 
 @media(max-width: 576.99px) {
+
+  .ui-breadcrumbs {
+    &-link {
+      font-size: 10px;
+    }
+
+    span {
+      font-size: 10px;
+    }
+  }
+
   .ui-title {
     font-size: 24px;
+
+    span {
+      font-size: 10px;
+      top: -15px;
+      right: -5px;
+    }
   }
 
   .ui-checkbox {
@@ -1017,6 +1154,11 @@ svg {
     font-size: 12px;
   }
 
+  .select2-container {
+    max-width: 100%;
+    height: 31px;
+  }
+
 
   .ui-header {
     padding-bottom: 12px;
@@ -1026,6 +1168,18 @@ svg {
       flex-direction: column;
       align-items: start;
       gap: 12px 0;
+    }
+
+    &.column {
+      border-bottom: none;
+      gap: 0;
+
+      .ui-title {
+        padding-bottom: 12px;
+        margin-bottom: 16px;
+        border-bottom: 1px solid #CFD2D7;
+        width: 100%;
+      }
     }
 
     &-link {
@@ -1155,6 +1309,12 @@ svg {
     width: 100%;
   }
 
+  .load-more {
+    padding: 0 8px;
+    max-width: 106px;
+    width: 100%;
+  }
+
   .ui-catalog {
     .splide__list {
       display: flex !important;
@@ -1168,6 +1328,18 @@ svg {
       &.hidden {
         display: none;
       }
+    }
+  }
+
+  .ui-pagination {
+    gap: 0 4px;
+    .hidden {
+      display: none;
+    }
+
+    &-links {
+      width: 24px;
+      flex: 0 0 24px;
     }
   }
 }

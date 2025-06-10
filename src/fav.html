@@ -8,9 +8,9 @@
         <span>Избранное</span>
       </div>
 
-      <div class="ui-header flex bottom">
+      <div class="ui-header flex bottom column">
         <h2 class="ui-title">Избранное</h2>
-        <select class="ui-select sort" style="width: 100%">
+        <select class="ui-select sort" style="width: 100%" width="style">
           <option></option>
           <option>Популярные</option>
           <option>Сначала дешевле</option>
@@ -18,7 +18,7 @@
         </select>
       </div>
 
-      <div class="fav-content pb-32 show-list">
+      <div class="fav-content pb-32 load-list">
         <div class="fav-content-list">
           <div class="row">
             <div class="col-lg-3 col-sm-4 col-ss-6">
@@ -984,7 +984,34 @@
           </div>
         </div>
         <div class="fav-content-controls">
-          <button class="ui-btn show-fav">Показать еще</button>
+          <button class="ui-btn load-more">Показать еще</button>
+
+          <script>
+            document.addEventListener("DOMContentLoaded", () => {
+              $(document).ready(function () {
+                let currentPage = 1;
+                let totalPages = 9;
+
+                $(".load-more").click(function (e) {
+                const parent = e.target.closest('.category-content-controls')
+                  if (currentPage < totalPages) {
+                    $.ajax({
+                      url: `/getPage?page=${currentPage + 1}`,
+                      type: "GET",
+                      success: function (data) {
+                        $(".load-list .row").append(data);
+                        currentPage++;
+                        $(parent).find('.ui-pagination-links').removeClass("current")
+                        $(parent).find(`.ui-pagination-links:contains(${2})`).addClass("current")
+                      },
+                    });
+                  } else {
+                    $(this).hide();
+                  }
+                });
+              });
+            })
+         </script>
 
           <div class="ui-pagination">
             <a href="#" class="ui-pagination-links disable">
@@ -1008,41 +1035,41 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="faq">
-      <div class="container">
-        <div class="ui-header">
-          <h2 class="ui-title">Ответили на самые частые вопросы</h2>
+  <div class="faq">
+    <div class="container">
+      <div class="ui-header">
+        <h2 class="ui-title">Ответили на самые частые вопросы</h2>
+      </div>
+
+      <div class="faq-body">
+        <div class="faq-list">
+          <div class="faq-details active">
+            <button class="faq-summary">Сколько стоит доставка?</button>
+            <div class="faq-info">
+              Мы&nbsp;— один из&nbsp;ведущих поставщиков сантехнической продукции в&nbsp;Волгоградской, Астраханской, Саратовской и&nbsp;Ростовской областях. Предоставляем полный комплекс услуг для&nbsp;организаций любого уровня: от&nbsp;небольших магазинов до&nbsp;торговых сетей
+            </div>
+          </div>
+          <div class="faq-details">
+            <button class="faq-summary">Как я могу вернуть приобретенный товар?</button>
+            <div class="faq-info">
+              Мы&nbsp;— один из&nbsp;ведущих поставщиков сантехнической продукции в&nbsp;Волгоградской, Астраханской, Саратовской и&nbsp;Ростовской областях. Предоставляем полный комплекс услуг для&nbsp;организаций любого уровня: от&nbsp;небольших магазинов до&nbsp;торговых сетей
+            </div>
+          </div>
+          <div class="faq-details">
+            <button class="faq-summary">Какие сроки возврата товара?</button>
+            <div class="faq-info">
+              Мы&nbsp;— один из&nbsp;ведущих поставщиков сантехнической продукции в&nbsp;Волгоградской, Астраханской, Саратовской и&nbsp;Ростовской областях. Предоставляем полный комплекс услуг для&nbsp;организаций любого уровня: от&nbsp;небольших магазинов до&nbsp;торговых сетей
+            </div>
+          </div>
         </div>
 
-        <div class="faq-body">
-          <div class="faq-list">
-            <div class="faq-details active">
-              <button class="faq-summary">Сколько стоит доставка?</button>
-              <div class="faq-info">
-                Мы&nbsp;— один из&nbsp;ведущих поставщиков сантехнической продукции в&nbsp;Волгоградской, Астраханской, Саратовской и&nbsp;Ростовской областях. Предоставляем полный комплекс услуг для&nbsp;организаций любого уровня: от&nbsp;небольших магазинов до&nbsp;торговых сетей
-              </div>
-            </div>
-            <div class="faq-details">
-              <button class="faq-summary">Как я могу вернуть приобретенный товар?</button>
-              <div class="faq-info">
-                Мы&nbsp;— один из&nbsp;ведущих поставщиков сантехнической продукции в&nbsp;Волгоградской, Астраханской, Саратовской и&nbsp;Ростовской областях. Предоставляем полный комплекс услуг для&nbsp;организаций любого уровня: от&nbsp;небольших магазинов до&nbsp;торговых сетей
-              </div>
-            </div>
-            <div class="faq-details">
-              <button class="faq-summary">Какие сроки возврата товара?</button>
-              <div class="faq-info">
-                Мы&nbsp;— один из&nbsp;ведущих поставщиков сантехнической продукции в&nbsp;Волгоградской, Астраханской, Саратовской и&nbsp;Ростовской областях. Предоставляем полный комплекс услуг для&nbsp;организаций любого уровня: от&nbsp;небольших магазинов до&nbsp;торговых сетей
-              </div>
-            </div>
-          </div>
+        <div class="faq-chat">
+          <div class="faq-chat-title">Остались вопросы?</div>
+          <div class="faq-chat-subtitle">Задайте свой вопрос в чате, мы ответим в течение нескольких минут</div>
 
-          <div class="faq-chat">
-            <div class="faq-chat-title">Остались вопросы?</div>
-            <div class="faq-chat-subtitle">Задайте свой вопрос в чате, мы ответим в течение нескольких минут</div>
-
-            <a href="#" class="ui-btn">Задать вопрос</a>
-          </div>
+          <a href="#" class="ui-btn">Задать вопрос</a>
         </div>
       </div>
     </div>
