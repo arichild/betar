@@ -26,6 +26,88 @@
   height: 100%!important;
 }
 
+.ui-catalog {
+  &-card {
+    min-height: 284px;
+    background-color: #fff;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    padding: 40px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    gap: 20px 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.big {
+      @media(min-width: 1024.99px) {
+        min-height: 588px;
+      }
+    }
+
+    &.long {
+      .ui-catalog-bottom {
+        max-width: calc(100% - 580px);
+      }
+    }
+  }
+
+  &-img {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &-head {
+    max-width: calc(100% - 300px);
+  }
+
+  &-title {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+
+  &-link {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1.4;
+    color: #2D88D6;
+    white-space: nowrap;
+
+    svg {
+      margin-left: 12px;
+      fill: #2D88D6;
+      height: 1cap;
+    }
+  }
+
+  &-bottom {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    max-width: calc(100% - 30px);
+  }
+
+  &-tag {
+    font-size: 14px;
+    min-height: 29px;
+    border: 1px solid #E1E3E5;
+    color: #828282;
+    border-radius: 30px;
+    line-height: 27px;
+    text-align: center;
+    padding: 0 14px;
+  }
+}
+
 .ui-breadcrumbs {
   padding: 40px 0;
 
@@ -883,6 +965,16 @@ svg {
 }
 
 @media(max-width: 1440.99px) {
+  .ui-catalog {
+    &-title {
+      font-size: 22px;
+    }
+
+    &-link {
+      font-size: 14px;
+    }
+  }
+
   .ui-title {
     font-size: 40px;
 
@@ -916,6 +1008,24 @@ svg {
 }
 
 @media(max-width: 1024.99px) {
+  .ui-catalog {
+    &-card {
+      min-height: 270px;
+    }
+
+    &-title {
+      font-size: 20px;
+    }
+
+    &-link {
+      font-size: 13px;
+    }
+
+    &-bottom {
+      max-width: 50%;
+    }
+  }
+
   .ui-title {
     font-size: 32px;
 
