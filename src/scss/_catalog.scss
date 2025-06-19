@@ -1,0 +1,133 @@
+.catalog {
+  &-page {
+    padding-bottom: 80px;
+  }
+
+  &-offers {
+    margin-bottom: 20px;
+  }
+
+  &-offer {
+    min-height: 284px;
+    background-color: #EAF5FF;
+    border-radius: 16px;
+    position: relative;
+    padding: 40px;
+
+    &.orange {
+      background-color: #FFF0EB;
+    }
+
+    img {
+      position: absolute;
+      right: 40px;
+      top: 40px;
+    }
+
+    &-title {
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+
+    a {
+      display: block;
+    }
+  }
+
+  @media(max-width: 1440.99px) {
+    &-page {
+      padding-bottom: 60px;
+    }
+
+    &-offer {
+      min-height: 250px;
+      padding: 35px;
+
+      &-title {
+        font-size: 22px;
+      }
+
+      img {
+        max-width: 135px;
+        top: 35px;
+        right: 35px;
+      }
+    }
+  }
+
+  @media(max-width: 1024.99px) {
+    &-page {
+      padding-bottom: 50px;
+    }
+
+    &-offer {
+      min-height: 200px;
+      padding: 30px;
+
+      &-title {
+        font-size: 20px;
+      }
+
+      img {
+        max-width: 130px;
+        top: 30px;
+        right: 30px;
+      }
+    }
+  }
+
+  @media(max-width: 768.99px) {
+    &-page {
+      padding-bottom: 40px;
+    }
+
+    &-offer {
+      min-height: 150px;
+      padding: 25px;
+
+      &-title {
+        font-size: 16px;
+      }
+
+      img {
+        max-width: 100px;
+        top: 25px;
+        right: 25px;
+      }
+    }
+  }
+
+  @media(max-width: 576.99px) {
+    &-page {
+      padding-bottom: 32px;
+    }
+
+    &-offers {
+      margin-bottom: 16px;
+    }
+
+    &-offer {
+      min-height: 62px;
+      padding: 16px;
+      border-radius: 6px;
+
+      &-title {
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .ui-header-link {
+        display: none;
+      }
+
+      img {
+        max-width: 30px;
+        top: 16px;
+        right: 16px;
+      }
+    }
+  }
+}

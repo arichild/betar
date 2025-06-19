@@ -869,7 +869,7 @@
             <div class="category-content-controls">
               <button class="ui-btn load-more">Показать еще</button>
 
-              <script>
+              <!-- <script>
                  document.addEventListener("DOMContentLoaded", () => {
                    $(document).ready(function () {
                      let currentPage = 1;
@@ -879,7 +879,7 @@
                       const parent = e.target.closest('.category-content-controls')
                        if (currentPage < totalPages) {
                          $.ajax({
-                           url: `/getPage?page=${currentPage + 1}`, // услоаный url куда будет идти запрос
+                           url: `/getPage?page=${currentPage + 1}`, // условный url куда будет идти запрос
                            type: "GET",
                            success: function (data) {
                              $(".load-list .row").append(data);
@@ -894,7 +894,7 @@
                      });
                    });
                  })
-              </script>
+              </script> -->
 
               <div class="ui-pagination">
                 <a href="#" class="ui-pagination-links prev disable">
