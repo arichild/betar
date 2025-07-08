@@ -1,5 +1,5 @@
 .catalog {
-  &-page {
+  &-content {
     padding-bottom: 80px;
   }
 
@@ -38,7 +38,7 @@
   }
 
   @media(max-width: 1440.99px) {
-    &-page {
+    &-content {
       padding-bottom: 60px;
     }
 
@@ -59,7 +59,7 @@
   }
 
   @media(max-width: 1024.99px) {
-    &-page {
+    &-content {
       padding-bottom: 50px;
     }
 
@@ -80,7 +80,7 @@
   }
 
   @media(max-width: 768.99px) {
-    &-page {
+    &-content {
       padding-bottom: 40px;
     }
 
@@ -101,7 +101,7 @@
   }
 
   @media(max-width: 576.99px) {
-    &-page {
+    &-content {
       padding-bottom: 32px;
     }
 
@@ -117,6 +117,7 @@
       &-title {
         font-size: 12px;
         font-weight: 500;
+        margin-bottom: 0;
       }
 
       .ui-header-link {

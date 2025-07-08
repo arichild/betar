@@ -1,0 +1,23 @@
+.notfound {
+  padding: 80px 0;
+
+  @media(max-width: 1440.99px) {
+    padding: 60px 0;
+  }
+
+  @media(max-width: 1024.99px) {
+    padding: 50px 0;
+
+    .ui-info-txt {
+      margin-bottom: 26px;
+    }
+  }
+
+  @media(max-width: 768.99px) {
+    padding: 40px 0;
+  }
+
+  @media(max-width: 576.99px) {
+    padding: 20px 0;
+  }
+}

@@ -1,4 +1,4 @@
-<div class="ui-popup mfp-anim">
+<div class="ui-popup application-popup-block mfp-anim">
   <div class="application-popup">
     <div class="ui-popup-txt">
       <div class="ui-popup-title">Оставьте заявку</div>
@@ -28,7 +28,7 @@
           </label>
         </div>
 
-        <button class="ui-btn">Авторизоваться</button>
+        <button class="ui-btn">Отправить</button>
       </form>
     </div>
   </div>
@@ -92,6 +92,19 @@
             required: true,
             phone: true,
           },
+          confidentiality: {
+            required: true,
+          },
+        },
+
+        errorPlacement: function (error, element) {
+          if (element.hasClass('ui-checkbox-input')) {
+            element.closest('.ui-checkbox').append(error);
+          }
+
+          if (element.hasClass('ui-input')) {
+            element.closest('.ui-field').append(error);
+          }
         },
 
         submitHandler: function (form) {

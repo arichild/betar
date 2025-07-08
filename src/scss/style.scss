@@ -15,9 +15,18 @@
 @import "fav";
 @import "category";
 @import "catalog";
+@import "delivery";
+@import "thanks";
+@import "page-404";
+@import "policy";
 
 * {
   box-sizing: border-box;
+}
+
+html,
+body {
+  scrollbar-gutter: stable;
 }
 
 html {
@@ -31,6 +40,8 @@ html {
 
   &.active {
     overflow: hidden;
+    touch-action: none;
+    -ms-touch-action: none;
   }
 }
 

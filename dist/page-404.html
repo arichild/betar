@@ -1,0 +1,55 @@
+<!--#include file="inc-header.html"-->
+
+<div class="middle" id="middle">
+  <div class="notfound-page">
+    <div class="notfound">
+      <div class="container">
+        <div class="ui-info">
+          <div class="ui-info-top">
+            <div class="ui-info-txt">
+              <div class="ui-info-title">Ошибка 404</div>
+              <div class="ui-info-subtitle">Страница не найдена. <br> Вы можете вернуться на главную или воспользоваться поиском</div>
+            </div>
+
+            <a href="#" class="ui-btn big">На главную</a>
+          </div>
+
+          <div class="ui-info-search">
+            <button>Поиск по каталогу</button>
+
+            <div class="search-icon">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.0007 16.9995L15.4008 15.3995M1.00073 8.59952C1.00073 4.40215 4.40337 0.999512 8.60073 0.999512C12.7981 0.999512 16.2007 4.40215 16.2007 8.59952C16.2007 12.7969 12.7981 16.1995 8.60073 16.1995C4.40337 16.1995 1.00073 12.7969 1.00073 8.59952Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </div>
+          </div>
+
+          <script>
+            document.addEventListener("DOMContentLoaded", (event) => {
+              $(document).ready(function () {
+                const searchInput = document.querySelector('.header-middle-search input');
+                const searchBtn = document.querySelector('.ui-info-search button');
+                const searchBlock = document.querySelector('.header-middle-search');
+                const headerMiddleBlock = document.querySelector('.header-middle-center');
+
+                console.log(searchBtn)
+
+                if (searchBtn) {
+                    const searchResult = document.querySelector('.result')
+                    searchBtn.addEventListener('click', () => {
+                      searchResult.classList.toggle('active')
+                      searchBlock.classList.toggle('active')
+                      headerMiddleBlock.classList.toggle('active')
+                      searchInput.focus()
+                    });
+                  }
+              });
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--#include file="inc-footer.html"-->

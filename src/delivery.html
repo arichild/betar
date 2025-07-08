@@ -1,0 +1,103 @@
+<!--#include file="inc-header.html"-->
+
+<div class="middle" id="middle">
+  <div class="delivery">
+    <div class="container">
+      <div class="ui-breadcrumbs">
+        <a href="#" class="ui-breadcrumbs-link">Главная</a>
+        <span>Доставка и оплата</span>
+      </div>
+
+      <div class="ui-header">
+        <h1 class="ui-title">Доставка и оплата</h1>
+      </div>
+
+      <div class="delivery-content">
+        <div class="delivery-info">
+          <p class="faq-desc">Доставка бесплатная. Доставка на следующий день доступна при оформлении заказа <br> до 15:00 текущего дня и в случае наличия свободных квот на выбранную вами дату доставки.</p>
+
+          <div class="faq-body">
+            <div class="faq-list">
+              <div class="faq-details active">
+                <button class="faq-summary">Условия доставки</button>
+                <div class="faq-info">
+                  Мы — один из ведущих поставщиков сантехнической продукции в Волгоградской, Астраханской, Саратовской и Ростовской областях. Предоставляем полный комплекс услуг для организаций любого уровня: от небольших магазинов до торговых сетей
+                </div>
+              </div>
+              <div class="faq-details">
+                <button class="faq-summary">Доставка по Волгограду и области</button>
+                <div class="faq-info">
+                  Мы — один из ведущих поставщиков сантехнической продукции в Волгоградской, Астраханской, Саратовской и Ростовской областях. Предоставляем полный комплекс услуг для организаций любого уровня: от небольших магазинов до торговых сетей
+                </div>
+              </div>
+              <div class="faq-details">
+                <button class="faq-summary">Доставка по Астрахани и области</button>
+                <div class="faq-info">
+                  Мы — один из ведущих поставщиков сантехнической продукции в Волгоградской, Астраханской, Саратовской и Ростовской областях. Предоставляем полный комплекс услуг для организаций любого уровня: от небольших магазинов до торговых сетей
+                </div>
+              </div>
+              <div class="faq-details">
+                <button class="faq-summary">Доставка по Саратову и области</button>
+                <div class="faq-info">
+                  Мы — один из ведущих поставщиков сантехнической продукции в Волгоградской, Астраханской, Саратовской и Ростовской областях. Предоставляем полный комплекс услуг для организаций любого уровня: от небольших магазинов до торговых сетей
+                </div>
+              </div>
+              <div class="faq-details">
+                <button class="faq-summary">Доставка по Ростову и области</button>
+                <div class="faq-info">
+                  Мы — один из ведущих поставщиков сантехнической продукции в Волгоградской, Астраханской, Саратовской и Ростовской областях. Предоставляем полный комплекс услуг для организаций любого уровня: от небольших магазинов до торговых сетей
+                </div>
+              </div>
+              <div class="faq-details">
+                <button class="faq-summary">Варианты оплаты</button>
+                <div class="faq-info">
+                  Мы — один из ведущих поставщиков сантехнической продукции в Волгоградской, Астраханской, Саратовской и Ростовской областях. Предоставляем полный комплекс услуг для организаций любого уровня: от небольших магазинов до торговых сетей
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-chat">
+              <div class="faq-chat-title">Остались вопросы?</div>
+              <div class="faq-chat-subtitle">Задайте свой вопрос в чате, мы ответим в течение нескольких минут</div>
+
+              <a href="#" class="ui-btn">Задать вопрос</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contacts-address">
+          <h2 class="ui-title">Наш магазин по адресу: г. Волгоград, пр. Дорожников, 12Г</h2>
+
+          <div class="contacts-address-map" id="map" style="width: 100%"></div>
+
+          <script>
+            window.onload = function() {
+              const script = document.createElement("script");
+              script.src = "//api-maps.yandex.ru/2.1/?lang=ru_RU"
+
+              document.body.appendChild(script)
+              script.onload = function() {
+                var myMap;
+                ymaps.ready(init);
+
+                function init () {
+                  myMap = new ymaps.Map('map', {
+                    center: [48.77785166320938, 44.493821017928354],
+                    zoom: 11,
+                    controls: []
+                  }, {
+                    searchControlProvider: 'yandex#search'
+                  }),
+                  myPlacemark = new ymaps.Placemark([48.77785166320938, 44.493821017928354]);
+                  myMap.geoObjects.add(myPlacemark);
+                }
+              }
+            }
+        </script>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--#include file="inc-footer.html"-->

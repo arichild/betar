@@ -113,15 +113,43 @@
   }
 }
 
+.application-popup {
+  &-block {
+    max-width: 536px;
+  }
+
+  .ui-checkbox {
+    margin-bottom: 14px;
+  }
+
+  .ui-fields {
+    margin-bottom: 14px;
+  }
+}
+
 .ok-popup {
+  &-block {
+    max-width: 536px;
+  }
+
   .ui-popup-subtitle {
     max-width: 290px;
+    margin: 0 auto;
+  }
+
+  .ui-btn {
+    max-width: 255px;
+    display: block;
     margin: 0 auto;
   }
 
   @media(max-width: 576px) {
     .ui-popup-subtitle {
       max-width: 270px;
+    }
+
+    .ui-btn {
+      max-width: 100%;
     }
   }
 }

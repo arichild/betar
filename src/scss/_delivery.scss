@@ -1,0 +1,33 @@
+.delivery {
+  &-info {
+    margin-bottom: 138px;
+  }
+
+  @media(max-width: 1440.99px) {
+    &-info {
+      margin-bottom: 100px;
+    }
+  }
+
+  @media(max-width: 1024.99px) {
+    &-info {
+      margin-bottom: 80px;
+    }
+  }
+
+  @media(max-width: 768.99px) {
+    &-info {
+      margin-bottom: 40px;
+    }
+  }
+
+  @media(max-width: 576.99px) {
+    &-info {
+      margin-bottom: 32px;
+    }
+
+    // .contacts-address {
+    //   display: none;
+    // }
+  }
+}
