@@ -1,0 +1,144 @@
+.order {
+  &-summary {
+    max-width: 620px;
+    padding: 24px;
+    background-color: #F7F7F7;
+    border-radius: 8px;
+
+    &-top {
+      padding-bottom: 22px;
+      margin-bottom: 22px;
+      border-bottom: 1px solid #E1E3E5;
+    }
+
+    &-txt {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 500;
+      font-size: 15px;
+      margin-bottom: 22px;
+      line-height: 1.2;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &.light {
+        font-weight: 400;
+        line-height: 1.4;
+        color: #6A6B70;
+      }
+
+      &.big {
+        font-size: 18px;
+      }
+    }
+
+    &-price {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 500;
+      font-size: 18px;
+      margin-bottom: 22px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &-title {
+      max-width: 64%;
+      flex: 0 0 64%;
+    }
+
+    &-subtitle {
+      max-width: 36%;
+      flex: 0 0 36%;
+    }
+  }
+
+  @media(max-width: 1440.99px) {
+    &-summary {
+      padding: 22px;
+
+      &-top {
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+      }
+
+      &-price {
+        font-size: 16px;
+      }
+
+      &-txt {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  @media(max-width: 1024.99px) {
+    &-summary {
+      padding: 18px;
+
+      &-top {
+        padding-bottom: 18px;
+        margin-bottom: 18px;
+      }
+
+      &-txt {
+        font-size: 14px;
+        margin-bottom: 18px;
+      }
+
+      &-price {
+        font-size: 14px;
+      }
+    }
+  }
+
+  @media(max-width: 768.99px) {
+    &-summary {
+      padding: 14px;
+
+      &-top {
+        padding-bottom: 14px;
+        margin-bottom: 14px;
+      }
+
+      &-txt {
+        font-size: 13px;
+        margin-bottom: 14px;
+      }
+
+      &-price {
+        font-size: 13px;
+      }
+    }
+  }
+
+  @media(max-width: 576.99px) {
+    &-summary {
+      padding: 8px;
+
+      &-top {
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+      }
+
+      &-txt {
+        font-size: 12px;
+        margin-bottom: 10px;
+      }
+
+      &-price {
+        font-size: 12px;
+      }
+
+      &-subtitle {
+        text-align: right;
+      }
+    }
+  }
+}

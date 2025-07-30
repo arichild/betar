@@ -97,6 +97,12 @@
           },
         },
 
+        messages: {
+          confidentiality: {
+            required: 'Подтвердите согласие'
+          }
+        },
+
         errorPlacement: function (error, element) {
           if (element.hasClass('ui-checkbox-input')) {
             element.closest('.ui-checkbox').append(error);
