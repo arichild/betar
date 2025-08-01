@@ -166,6 +166,7 @@ $( document ).ready(function() {
   // splide
   const bransSlider = document.querySelector('.brands-splide')
   const certificateSlider = document.querySelector('.certificate-splide')
+  const newsSlider = document.querySelector('.news-splide')
   const catalogSlider = document.querySelectorAll('.catalog-splide')
   const mainSlider = document.querySelector('.main-splide')
 
@@ -222,6 +223,27 @@ $( document ).ready(function() {
         }
       }).mount();
     })
+  }
+
+  if(newsSlider) {
+    new Splide(newsSlider, {
+      perPage: 3,
+      gap: 20,
+      arrows: false,
+
+      breakpoints: {
+        1024: {
+          gap: 10,
+          perPage: 2,
+        },
+        768: {
+          perPage: 1,
+        },
+        576: {
+          destroy: true,
+        },
+      }
+    }).mount();
   }
 
   if(mainSlider) {
@@ -535,6 +557,20 @@ $( document ).ready(function() {
   window.addEventListener('resize', menuCategory)
   menuCategory()
 
+
+  // clipboard
+  const button = document.querySelectorAll('.copy');
+
+  if(button.length) {
+    button.forEach(item => {
+      item.addEventListener('click', (e) => {
+        const parent = e.target.closest('.clipboard')
+        const copyText = parent.querySelector('span').textContent
+
+        navigator.clipboard.writeText(copyText);
+      })
+    })
+  }
 })
 
 function showPopup() {

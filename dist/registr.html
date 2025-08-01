@@ -1,0 +1,112 @@
+<!--#include file="inc-header.html"-->
+
+<div class="middle" id="middle">
+  <div class="auth-page">
+    <div class="auth-block">
+      <div class="auth-block-head">
+        <div class="auth-block-title">Регистрация</div>
+        <div class="auth-block-subtitle"><span>Если вы регистрируетесь впервые</span>, то сразу после регистрации вам будут доступны только розничные цены. В течение 5 рабочих дней они сменятся на оптовые</div>
+      </div>
+
+      <div class="auth-block-body">
+        <form action="" class="form-validate">
+          <div class="ui-fields">
+            <div class="ui-field">
+              <input type="text" class="ui-input" name="name" id="name" placeholder="Имя">
+            </div>
+            <div class="ui-field">
+              <input type="text" class="ui-input" name="inn" id="inn" placeholder="ИНН организации">
+            </div>
+            <div class="ui-field">
+              <input type="text" class="ui-input" name="email" id="email" placeholder="Email">
+            </div>
+            <div class="ui-field">
+              <input type="text" class="ui-input phone-mask" name="phone" id="phone" placeholder="Телефон">
+            </div>
+            <div class="ui-field">
+              <input type="password" class="ui-input" name="password" id="password" placeholder="Пароль">
+            </div>
+            <div class="ui-field">
+              <input type="password" class="ui-input" name="password_confirm" id="password_confirm" placeholder="Повторите пароль">
+            </div>
+          </div>
+
+          <div class="ui-checkbox">
+            <input autocomplete="off" type="checkbox" class="ui-checkbox-input" checked="" name="confidentiality" id="confidentiality">
+            <label for="confidentiality" class="ui-checkbox-label">
+              <span class="default-txt">
+                Я согласен с <a href="#">политикой конфиденциальности</a>.
+              </span>
+            </label>
+          </div>
+
+          <button class="ui-btn">Зарегистрироваться</button>
+        </form>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", (event) => {
+            $(document).ready(function () {
+              $(".form-validate").validate({
+                errorElement: "span",
+
+                rules: {
+                  name: {
+                    required: true,
+                    lettersonly: true,
+                  },
+                  inn: {
+                    required: true,
+                    minlength: 10
+                  },
+                  email: {
+                    required: true,
+                    email: true,
+                  },
+                  phone: {
+                    required: true,
+                    phone: true,
+                  },
+                  password: {
+                    required: true,
+                    minlength: 8,
+                  },
+                  password_confirm: {
+                    required: true,
+                    equalTo: "#password"
+                  },
+                  confidentiality: {
+                    required: true,
+                  },
+                },
+
+                messages: {
+                  password: {
+                    minlength: 'Пароль должен содержать минимум 8 символов'
+                  },
+                  password_confirm: {
+                    equalTo: 'Пароль не совпадает'
+                  },
+                  confidentiality: {
+                    required: 'Подтвердите согласие'
+                  }
+                },
+
+                errorPlacement: function (error, element) {
+                  if (element.hasClass('ui-checkbox-input')) {
+                    element.closest('.ui-checkbox').append(error);
+                  }
+
+                  if (element.hasClass('ui-input')) {
+                    element.closest('.ui-field').append(error);
+                  }
+                },
+              });
+            });
+          });
+        </script>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--#include file="inc-footer.html"-->

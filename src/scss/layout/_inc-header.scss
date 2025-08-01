@@ -1420,7 +1420,7 @@
   width: 100%;
   top: calc(100% + 16px);
   display: none;
-  z-index: 510;
+  // z-index: 510;
 
   &.active {
     display: block;
