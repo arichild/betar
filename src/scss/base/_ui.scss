@@ -168,6 +168,88 @@
   }
 }
 
+.ui-select-block {
+  // position: relative;
+  height: 52px;
+  line-height: 50px;
+  // max-width: 158px;
+  display: inline-block;
+  // line-height: 1;
+}
+
+.ui-radio {
+  position: absolute;
+  z-index: -1;
+  opacity: 0
+}
+
+.ui-radio+label {
+  // display: flex;
+  // justify-content: center;
+  // flex-direction: column;
+  // padding: 10px 45px 10px 62px;
+  // border: 1px solid #d4dfea;
+  // border-radius: 8px;
+  // width: 100%;
+  // font-size: 20px;
+  // color: #172542;
+  // min-height: 80px;
+  display: block;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 15px;
+  // line-height: 1;
+  color: #2D88D6;
+  width: 100%;
+  height: 100%;
+  padding: 0 20px;
+  padding-left: 54px;
+  // text-align: right;
+   border: 1px solid #2d88d6;
+  border-radius: 8px;
+}
+
+.ui-select-block span {
+  position: relative;
+}
+
+.ui-radio+label span::before {
+  content: "";
+  display: block;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #A5A8AD;
+  border-radius: 50%;
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: translate(0,-50%)
+}
+
+.ui-radio:checked+label {
+  border-color: #EAF5FF;
+  background-color: #EAF5FF;
+  color: #1D1E20;
+}
+
+.ui-radio:checked+label span::before {
+  border-color: #2D88D6;
+}
+
+.ui-radio:checked+label span::after {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  background-color: #2D88D6;
+  position: absolute;
+  top: 50%;
+  transform: translate(0,-50%);
+  left: -28px;
+  border-radius: 50%
+}
+
+
 .ui-info {
   background-color: #EAF5FF;
   padding: 40px;
@@ -622,6 +704,10 @@ span.error {
 .ui-fields {
   margin-bottom: 10px;
 
+  .row {
+    gap: 20px 0;
+  }
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -973,6 +1059,25 @@ svg {
   }
 }
 
+.tag {
+  font-weight: 400;
+  font-size: 12px;
+  color: #f2f2f2;
+  padding: 0 8px;
+  border-radius: 5px;
+  height: 23px;
+  line-height: 23px;
+  display: inline-block;
+
+  &.discount {
+    background-color: #E84E1B;
+  }
+
+  &.season {
+    background-color: #36BC14;
+  }
+}
+
 .ui-card {
   border-radius: 16px;
   padding: 16px;
@@ -1029,27 +1134,10 @@ svg {
     &.right {
       justify-content: flex-end;
     }
-
-    .tag {
-      font-weight: 400;
-      font-size: 12px;
-      color: #f2f2f2;
-      padding: 0 8px;
-      border-radius: 5px;
-      height: 23px;
-      line-height: 23px;
-
-      &.discount {
-        background-color: #E84E1B;
-      }
-
-      &.season {
-        background-color: #36BC14;
-      }
-    }
   }
 
   &-fav {
+    display: block;
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -1129,6 +1217,19 @@ svg {
       line-height: 1.2;
       text-decoration: line-through;
       color: #A5A8AD;
+      position: relative;
+      top: 6px;
+    }
+
+    .percent {
+      font-weight: 400;
+      font-size: 12px;
+      color: #f2f2f2;
+      border-radius: 5px;
+      background: #e84e1b;
+      height: 23px;
+      line-height: 23px;
+      padding: 0 8px;
       position: relative;
       top: 6px;
     }
@@ -1365,6 +1466,28 @@ svg {
 }
 
 @media(max-width: 1440.99px) {
+  .ui-select-block {
+    height: 41px;
+    line-height: 39px;
+  }
+
+  .ui-radio+label {
+    font-size: 14px;
+    padding-left: 50px;
+  }
+
+  .ui-radio+label span::before {
+    width: 16px;
+    height: 16px;
+    left: -28px;
+  }
+
+  .ui-radio:checked+label span::after {
+    width: 14px;
+    height: 14px;
+    left: -26px;
+  }
+
   .ui-table {
     caption {
       margin-bottom: 20px;
@@ -1510,6 +1633,12 @@ svg {
 }
 
 @media(max-width: 1024.99px) {
+  .ui-fields {
+    .row {
+      gap: 10px 0;
+    }
+  }
+
   .ui-table {
     font-size: 14px;
 
@@ -1607,6 +1736,13 @@ svg {
     height: 45px;
   }
 
+    .tag {
+    font-size: 10px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 8px;
+  }
+
   .ui-header {
     margin-bottom: 30px;
 
@@ -1626,15 +1762,6 @@ svg {
     &-fav {
       width: 42px;
       height: 42px;
-    }
-
-    &-head {
-      .tag {
-        font-size: 10px;
-        height: 20px;
-        line-height: 20px;
-        padding: 0 8px;
-      }
     }
 
     &-img {
@@ -1705,6 +1832,28 @@ svg {
 }
 
 @media(max-width: 768.99px) {
+  .ui-select-block {
+    height: 31px;
+    line-height: 29px;
+  }
+
+  .ui-radio+label {
+    font-size: 12px;
+    padding-left: 38px;
+  }
+
+  .ui-radio+label span::before {
+    width: 14px;
+    height: 14px;
+    left: -26px;
+  }
+
+  .ui-radio:checked+label span::after {
+    width: 12px;
+    height: 12px;
+    left: -24px;
+  }
+
   .copy {
     width: 10px;
     height: 10px;
@@ -1909,6 +2058,7 @@ svg {
       height: 31px;
       line-height: 29px;
       border-radius: 6px;
+      font-size: 12px;
     }
   }
 
@@ -1937,6 +2087,13 @@ svg {
 
     &-pricing {
       margin-bottom: 10px;
+
+      .percent {
+        font-size: 10px;
+        height: 16px;
+        line-height: 16px;
+        padding: 0 4px;
+      }
     }
   }
 
@@ -2051,6 +2208,10 @@ svg {
     font-size: 11px;
   }
 
+  .ui-checkbox a {
+    font-size: 11px;
+  }
+
   .ui-input {
     height: 40px;
     border-radius: 8px;
@@ -2119,18 +2280,16 @@ svg {
     font-size: 12px;
   }
 
+  .tag {
+    font-size: 8px;
+    padding: 0 4px;
+    height: 14px;
+    line-height: 14px;
+  }
+
   .ui-card {
     padding: 8px;
     border-radius: 10px;
-
-    &-head {
-      .tag {
-        font-size: 8px;
-        padding: 0 4px;
-        height: 14px;
-        line-height: 14px;
-      }
-    }
 
     &-fav {
       width: 24px;
@@ -2186,6 +2345,12 @@ svg {
       .discount {
         font-size: 10px;
         top: 0;
+      }
+
+      .percent {
+        font-size: 8px;
+        border-radius: 4px;
+
       }
     }
 

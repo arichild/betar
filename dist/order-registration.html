@@ -1,0 +1,180 @@
+<!--#include file="inc-header.html"-->
+
+<div class="middle" id="middle">
+  <div class="order-page">
+    <div class="order">
+      <div class="container">
+        <div class="ui-breadcrumbs">
+          <a href="#" class="ui-breadcrumbs-link">Главная</a>
+          <a href="#" class="ui-breadcrumbs-link">Корзина</a>
+          <span>Оформление заказа</span>
+        </div>
+
+        <div class="ui-header">
+          <h1 class="ui-title">Оформление заказа</h1>
+        </div>
+
+        <div class="order-content">
+          <form action="">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="order-form-content">
+                  <div class="order-form">
+                    <h2>Личные данные</h2>
+
+                    <div class="ui-fields">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="ui-field">
+                            <label for="name" class="ui-label">Имя</label>
+                            <input type="text" class="ui-input" name="name" id="name" placeholder="Имя" value="Мария">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="ui-field">
+                            <label for="surname" class="ui-label">Фамилия</label>
+                            <input type="text" class="ui-input" name="surname" id="surname" placeholder="Фамилия" value="Петрова">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="ui-field">
+                            <label for="phone" class="ui-label">Телефон</label>
+                            <input type="text" class="ui-input" name="phone" id="phone" placeholder="Телефон" value="+7 (123) 456-78-90">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="ui-field">
+                            <label for="email" class="ui-label">Почта</label>
+                            <input type="text" class="ui-input" name="email" id="email" placeholder="Почта" value="example-mail@yandex.ru">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="order-form">
+                    <h2>Доставка</h2>
+
+                    <div class="order-form-select">
+                      <div class="ui-select-block">
+                        <input autocomplete="off" type="radio" class="ui-radio" id="courier" name="delivery">
+                        <label for="courier"><span>Курьером</span></label>
+                      </div>
+                      <div class="ui-select-block">
+                        <input autocomplete="off" type="radio" class="ui-radio" id="pickup" name="delivery" checked>
+                        <label for="pickup"><span>Самовывоз</span></label>
+                      </div>
+                    </div>
+
+                    <div class="order-form-delivery" data-delivery="courier">
+                      <div class="ui-fields">
+                        <div class="row">
+                          <div class="col-md-7">
+                            <div class="ui-field">
+                              <label for="name" class="ui-label">Название адреса</label>
+                              <input type="text" class="ui-input" name="name" id="name" placeholder="Комсомольская" value="Комсомольская">
+                            </div>
+                          </div>
+                          <div class="col-md-7">
+                            <div class="ui-field">
+                              <label for="name" class="ui-label">Область, населённый пункт</label>
+                              <input type="text" class="ui-input" name="name" id="name" placeholder="Волгоградская область, г. Волгоград" value="Волгоградская область, г. Волгоград">
+                            </div>
+                          </div>
+                          <div class="col-md-7">
+                            <div class="ui-field">
+                              <label for="name" class="ui-label">Улица, строение</label>
+                              <input type="text" class="ui-input" name="name" id="name" placeholder="Комсомольская, 6" value="Комсомольская, 6">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="order-form-delivery active" data-delivery="pickup">
+                      <p>Пункт самовывоза</p>
+
+                      <div class="order-saved">
+                        <div class="order-saved-top">
+                          <span class="tag season">Бесплатно</span>
+
+                          <div class="order-saved-date">15 мая</div>
+                        </div>
+
+                        <div class="order-saved-bottom">
+                          <div class="order-saved-info company">Бетар-Волга</div>
+                          <div class="order-saved-info address">г. Волгоград, пр. Дорожников, 12Г</div>
+                          <div class="order-saved-info time">Режим работы: пн-пт 9:00-19:00</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="order-form">
+                    <h2>Способ оплаты</h2>
+
+                    <div class="order-form-payment">
+                      <div class="ui-select-block">
+                        <input autocomplete="off" type="radio" class="ui-radio" id="select3" name="select2">
+                        <label for="select3"><span>Оплата по счёту</span></label>
+                      </div>
+                      <div class="ui-select-block">
+                        <input autocomplete="off" type="radio" class="ui-radio" id="select4" name="select2">
+                        <label for="select4"><span>Наличными при получении</span></label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <div class="cart-info">
+                  <div class="cart-info-list">
+                    <div class="cart-info-txt">
+                      <div class="cart-info-label">Количество</div>
+                      <div class="cart-info-value">5</div>
+                    </div>
+                    <div class="cart-info-txt">
+                      <div class="cart-info-label">Скидка</div>
+                      <div class="cart-info-value">4 674 ₽</div>
+                    </div>
+                  </div>
+
+                  <div class="cart-info-total">
+                    <div class="cart-info-title">Итого</div>
+                    <div class="cart-info-subtitle">24 499 000,00 ₽</div>
+                  </div>
+
+                  <div class="cart-promocode">
+                    <div class="cart-promocode-content">
+                      <div class="cart-promocode-input">
+                        <input type="text" placeholder="Ваш промокод">
+
+                        <img src="./images/promocode-icon.svg" alt="">
+                      </div>
+
+                      <button class="cart-promocode-btn">Применить</button>
+                    </div>
+                  </div>
+
+                  <a href="#" class="ui-btn big">Перейти к оформлению</a>
+
+                  <div class="ui-checkbox">
+                    <input autocomplete="off" type="checkbox" class="ui-checkbox-input" checked="" name="confidentiality" id="confidentiality">
+                    <label for="confidentiality" class="ui-checkbox-label">
+                      <span class="default-txt">
+                        Завершая оформление заказа, я соглашаюсь с условиями <a href="#">политики конфиденциальности</a>.
+                      </span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--#include file="inc-footer.html"-->

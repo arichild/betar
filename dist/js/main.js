@@ -126,6 +126,7 @@ $( document ).ready(function() {
   const moreButton = $(".category-filter-more");
   const items = $(".category-filter-list a");
   const categoryList = $(".category-filter-list");
+
   moreButton.on("click", function (e) {
     items.each(function (index) {
       if (index >= 7) {
@@ -169,6 +170,8 @@ $( document ).ready(function() {
   const newsSlider = document.querySelector('.news-splide')
   const catalogSlider = document.querySelectorAll('.catalog-splide')
   const mainSlider = document.querySelector('.main-splide')
+  const cardSlider = document.querySelector('.card-splide')
+  const mainCarousel = document.querySelector('.main-carousel')
 
   if(bransSlider) {
     new Splide( '.brands-splide', {
@@ -255,16 +258,106 @@ $( document ).ready(function() {
     }).mount();
   }
 
+  if(cardSlider) {
+    let main = new Splide( mainCarousel, {
+      // fixedWidth: 540,
+      // fixedHeight: 540,
+      // width: 540,
+      // autoWidth: true,
+      // autoHeight: true,
+      type      : 'fade',
+      rewind    : true,
+      pagination: false,
+      arrows    : false,
+      perPage: 1,
+
+      breakpoints: {
+        // 1024: {
+        //   fixedWidth: 420,
+        //   // fixedHeight: 80,
+        // },
+        // 768: {
+        //   perPage: 1,
+        // },
+        // 576: {
+        //   destroy: true,
+        // },
+      }
+    });
+
+    main.on('resize', function () {
+      if (window.innerWidth > 768) {
+        let mainHeight = mainCarousel.querySelector('.splide__track').offsetHeight;
+
+        cardSlider.style.height = mainHeight + 'px';
+      }
+    });
+
+
+    let thumbnails = new Splide( cardSlider, {
+      fixedWidth: 110,
+      fixedHeight: 110,
+      height: '100%',
+      gap       : 10,
+      rewind    : true,
+      pagination: false,
+      arrows: false,
+      isNavigation: true,
+      direction: 'ttb',
+
+      breakpoints: {
+        1440: {
+          fixedWidth: 80,
+          fixedHeight: 80,
+        },
+        768: {
+          direction: 'ltr',
+          height: 'auto',
+          arrows: true,
+          loop: false,
+          padding: { left: 4, right: 4 }
+        },
+      }
+    });
+
+
+    const allSliders = document.querySelectorAll('.main-carousel li.splide__slide').length - 1
+    thumbnails.on("active",function(e){
+      const prev = thumbnails.Components.Arrows.arrows.prev
+      const next = thumbnails.Components.Arrows.arrows.next
+
+      if(e.index === allSliders) {
+         next.classList.add('hide')
+         prev.classList.add('active')
+      }
+
+      if(e.index === 0) {
+        if(next && next.classList.contains('hide')) {
+          next.classList.remove('hide')
+        }
+        if(prev && prev.classList.contains('active')) {
+          prev.classList.remove('active')
+        }
+      }
+    });
+
+    main.sync( thumbnails );
+    main.mount();
+    thumbnails.mount();
+  }
+
   // faq details
   const faqBtns = document.querySelectorAll('.faq-summary')
 
-  faqBtns.forEach(el => {
-    el.addEventListener('click', (e) => {
-      const parent = e.target.closest('.faq-details')
+  if(faqBtns.length) {
+    faqBtns.forEach(el => {
+      el.addEventListener('click', (e) => {
+        const parent = e.target.closest('.faq-details')
 
-      parent.classList.toggle('active')
+        parent.classList.toggle('active')
+      })
     })
-  })
+  }
 
 
   // video
@@ -371,28 +464,31 @@ $( document ).ready(function() {
 
   // more cards
   const btnShowMore = document.querySelectorAll('.show-more')
-  btnShowMore.forEach(el => {
-    el.addEventListener('click', (e) => {
-      const parent = e.target.closest('.show-list')
-      const cards = parent.querySelectorAll('.splide__slide')
-      const hiddenCards = parent.querySelectorAll('.splide__slide.hidden')
 
-      if (hiddenCards.length > 0) {
-        hiddenCards.forEach((card, index) => {
-          if (index < 4) card.classList.remove('hidden')
-        })
+  if(btnShowMore.length) {
+    btnShowMore.forEach(el => {
+      el.addEventListener('click', (e) => {
+        const parent = e.target.closest('.show-list')
+        const cards = parent.querySelectorAll('.splide__slide')
+        const hiddenCards = parent.querySelectorAll('.splide__slide.hidden')
 
-        if (parent.querySelectorAll('.splide__slide.hidden').length === 0) {
-          e.target.textContent = 'Скрыть'
+        if (hiddenCards.length > 0) {
+          hiddenCards.forEach((card, index) => {
+            if (index < 4) card.classList.remove('hidden')
+          })
+
+          if (parent.querySelectorAll('.splide__slide.hidden').length === 0) {
+            e.target.textContent = 'Скрыть'
+          }
+        } else {
+          cards.forEach((card, index) => {
+            if (index >= 4) card.classList.add('hidden')
+          })
+          e.target.textContent = 'Показать ещё'
         }
-      } else {
-        cards.forEach((card, index) => {
-          if (index >= 4) card.classList.add('hidden')
-        })
-        e.target.textContent = 'Показать ещё'
-      }
+      })
     })
-  })
+  }
 
   // fav more cards
   // const btnShowFav = document.querySelectorAll('.show-fav')
@@ -568,6 +664,60 @@ $( document ).ready(function() {
         const copyText = parent.querySelector('span').textContent
 
         navigator.clipboard.writeText(copyText);
+      })
+    })
+  }
+
+
+  // show list in card.html
+  const btnShow = document.querySelector('.open-list')
+
+  if(btnShow) {
+    btnShow.addEventListener('click', (e) => {
+      const parent = e.target.closest('.card-info-list')
+      const list = parent.querySelector('ul')
+
+      list.classList.toggle('active')
+
+      if(list.classList.contains('active')) {
+        btnShow.textContent = 'Скрыть'
+      } else {
+        btnShow.textContent = 'Показать все'
+      }
+    })
+  }
+
+  // tabs
+  const tabs = document.querySelectorAll('.card-tablinks');
+
+  if(tabs.length) {
+    const tabContents = document.querySelectorAll('.card-tabcontent');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        tabs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
+        const tabNumber = this.getAttribute('data-tab');
+        tabContents.forEach(content => content.classList.remove('active'));
+        document.getElementById(`tab-${tabNumber}`).classList.add('active');
+      });
+    });
+  }
+
+  // delivery
+  const allRadio = document.querySelectorAll('.order-form-select input')
+
+  if(allRadio.length) {
+    allRadio.forEach(item => {
+      item.addEventListener('change', (e) => {
+        const allBlocks = document.querySelectorAll('.order-form-delivery')
+        const block = document.querySelector(`[data-delivery="${item.id}"]`)
+
+        allBlocks.forEach(el => {
+          el.classList.remove('active')
+        })
+
+        block.classList.add('active')
       })
     })
   }
