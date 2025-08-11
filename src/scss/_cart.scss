@@ -1,15 +1,16 @@
 .cart {
   .ui-header {
-    @media(min-width: 1024.99px) {
-      .ui-btn {
-        padding: 0 32px;
-        border-color: #2D88D6;
-        transition: background-color .2s ease, color .2s ease;
+    .ui-btn {
+      border-color: #2D88D6;
 
-        &:hover {
-          background-color: #2d88d6;
-          color: #fff;
-        }
+      @media(min-width: 1024.99px) {
+        padding: 0 32px;
+        transition: background-color .2s ease, color .2s ease;
+      }
+
+      &:hover {
+        background-color: #2d88d6;
+        color: #fff;
       }
     }
   }
@@ -276,6 +277,17 @@
       top: 0;
       padding: 0;
       line-height: 0;
+
+      svg {
+        stroke: #6A6B70;
+        transition: stroke .2s ease;
+      }
+
+      &:hover {
+        svg {
+          stroke: #2D88D6;
+        }
+      }
     }
 
     &-img {
@@ -553,7 +565,7 @@
         width: 24px;
         height: 24px;
 
-        img {
+        svg {
           width: 10px;
           height: 10px;
           position: absolute;

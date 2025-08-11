@@ -15,9 +15,9 @@
         </div>
 
         <div class="order-content">
-          <form action="">
+          <form action="" class="form-validate">
             <div class="row">
-              <div class="col-md-8">
+              <div class="col-lg-8 col-md-7">
                 <div class="order-form-content">
                   <div class="order-form">
                     <h2>Личные данные</h2>
@@ -98,7 +98,7 @@
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-lg-4 col-md-5">
                 <div class="cart-info">
                   <div class="cart-info-list">
                     <div class="cart-info-txt">
@@ -128,7 +128,7 @@
                     </div>
                   </div>
 
-                  <a href="#" class="ui-btn big">Перейти к оформлению</a>
+                  <button class="ui-btn big submit">Перейти к оформлению</button>
 
                   <div class="ui-checkbox">
                     <input autocomplete="off" type="checkbox" class="ui-checkbox-input" checked="" name="confidentiality" id="confidentiality">
@@ -142,6 +142,41 @@
               </div>
             </div>
           </form>
+
+
+          <script>
+            document.addEventListener("DOMContentLoaded", (event) => {
+              $( document ).ready(function() {
+                $('.submit').click(function(){
+                  $(".form-validate").validate({
+                    errorElement: "span",
+
+                    rules: {
+                      confidentiality: {
+                        required: true,
+                      },
+                    },
+
+                    messages: {
+                      confidentiality: {
+                        required: 'Подтвердите согласие'
+                      }
+                    },
+
+                    errorPlacement: function (error, element) {
+                      if (element.hasClass('ui-checkbox-input')) {
+                        element.closest('.ui-checkbox').append(error);
+                      }
+
+                      if (element.hasClass('ui-input')) {
+                        element.closest('.ui-field').append(error);
+                      }
+                    },
+                  });
+                });
+              })
+            })
+          </script>
         </div>
       </div>
     </div>

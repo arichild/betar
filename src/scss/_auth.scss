@@ -2,6 +2,7 @@
   &-page {
     background-color: #EAF5FF;
     padding: 80px 0;
+    min-height: calc(100dvh - 721px);
   }
 
   &-block {
@@ -80,12 +81,14 @@
   @media(max-width: 1440.99px) {
     &-page {
       padding: 60px 0;
+      min-height: calc(100dvh - 718px);
     }
   }
 
   @media(max-width: 1024.99px) {
     &-page {
       padding: 40px 0;
+      min-height: calc(100dvh - 815px);
     }
 
     &-block {
@@ -111,9 +114,16 @@
     }
   }
 
+  @media(max-width: 768.99px) {
+    &-page {
+      min-height: calc(100dvh - 802px);
+    }
+  }
+
   @media(max-width: 576.99px) {
     &-page {
       padding: 0;
+      min-height: auto;
     }
 
     &-block {

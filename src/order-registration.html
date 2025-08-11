@@ -15,9 +15,9 @@
         </div>
 
         <div class="order-content">
-          <form action="">
+          <form action="" class="form-validate">
             <div class="row">
-              <div class="col-md-8">
+              <div class="col-lg-8 col-md-7">
                 <div class="order-form-content">
                   <div class="order-form">
                     <h2>Личные данные</h2>
@@ -27,25 +27,25 @@
                         <div class="col-md-6">
                           <div class="ui-field">
                             <label for="name" class="ui-label">Имя</label>
-                            <input type="text" class="ui-input" name="name" id="name" placeholder="Имя" value="Мария">
+                            <input type="text" class="ui-input" name="name" id="name" placeholder="Мария" value="Мария">
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="ui-field">
                             <label for="surname" class="ui-label">Фамилия</label>
-                            <input type="text" class="ui-input" name="surname" id="surname" placeholder="Фамилия" value="Петрова">
+                            <input type="text" class="ui-input" name="surname" id="surname" placeholder="Петрова" value="Петрова">
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="ui-field">
                             <label for="phone" class="ui-label">Телефон</label>
-                            <input type="text" class="ui-input" name="phone" id="phone" placeholder="Телефон" value="+7 (123) 456-78-90">
+                            <input type="text" class="ui-input phone-mask" name="phone" id="phone" placeholder="+7 (123) 456-78-90" value="+7 (123) 456-78-90">
                           </div>
                         </div>
                         <div class="col-md-6">
                           <div class="ui-field">
                             <label for="email" class="ui-label">Почта</label>
-                            <input type="text" class="ui-input" name="email" id="email" placeholder="Почта" value="example-mail@yandex.ru">
+                            <input type="text" class="ui-input" name="email" id="email" placeholder="example-mail@yandex.ru" value="example-mail@yandex.ru">
                           </div>
                         </div>
                       </div>
@@ -71,20 +71,20 @@
                         <div class="row">
                           <div class="col-md-7">
                             <div class="ui-field">
-                              <label for="name" class="ui-label">Название адреса</label>
-                              <input type="text" class="ui-input" name="name" id="name" placeholder="Комсомольская" value="Комсомольская">
+                              <label for="address" class="ui-label">Название адреса</label>
+                              <input type="text" class="ui-input" name="address_name" id="address_name" placeholder="Комсомольская" value="Комсомольская">
                             </div>
                           </div>
                           <div class="col-md-7">
                             <div class="ui-field">
-                              <label for="name" class="ui-label">Область, населённый пункт</label>
-                              <input type="text" class="ui-input" name="name" id="name" placeholder="Волгоградская область, г. Волгоград" value="Волгоградская область, г. Волгоград">
+                              <label for="region" class="ui-label">Область, населённый пункт</label>
+                              <input type="text" class="ui-input" name="region" id="region" placeholder="Волгоградская область, г. Волгоград" value="Волгоградская область, г. Волгоград">
                             </div>
                           </div>
                           <div class="col-md-7">
                             <div class="ui-field">
-                              <label for="name" class="ui-label">Улица, строение</label>
-                              <input type="text" class="ui-input" name="name" id="name" placeholder="Комсомольская, 6" value="Комсомольская, 6">
+                              <label for="address" class="ui-label">Улица, строение</label>
+                              <input type="text" class="ui-input" name="address" id="address" placeholder="Комсомольская, 6" value="Комсомольская, 6">
                             </div>
                           </div>
                         </div>
@@ -127,7 +127,7 @@
                 </div>
               </div>
 
-              <div class="col-md-4">
+              <div class="col-lg-4 col-md-5">
                 <div class="cart-info">
                   <div class="cart-info-list">
                     <div class="cart-info-txt">
@@ -157,7 +157,7 @@
                     </div>
                   </div>
 
-                  <a href="#" class="ui-btn big">Перейти к оформлению</a>
+                  <button class="ui-btn big submit">Перейти к оформлению</button>
 
                   <div class="ui-checkbox">
                     <input autocomplete="off" type="checkbox" class="ui-checkbox-input" checked="" name="confidentiality" id="confidentiality">
@@ -171,6 +171,65 @@
               </div>
             </div>
           </form>
+
+          <script>
+            document.addEventListener("DOMContentLoaded", (event) => {
+              $( document ).ready(function() {
+                $('.submit').click(function(){
+                  $(".form-validate").validate({
+                    errorElement: "span",
+
+                    rules: {
+                      name: {
+                        required: true,
+                        lettersonly: true,
+                      },
+                      surname: {
+                        required: true,
+                        lettersonly: true,
+                      },
+                      phone: {
+                        required: true,
+                        phone: true,
+                      },
+                      email: {
+                        required: true,
+                        email: true
+                      },
+                      address_name: {
+                        required: true,
+                      },
+                      region: {
+                        required: true,
+                      },
+                      address: {
+                        required: true,
+                      },
+                      confidentiality: {
+                        required: true,
+                      },
+                    },
+
+                    messages: {
+                      confidentiality: {
+                        required: 'Подтвердите согласие'
+                      }
+                    },
+
+                    errorPlacement: function (error, element) {
+                      if (element.hasClass('ui-checkbox-input')) {
+                        element.closest('.ui-checkbox').append(error);
+                      }
+
+                      if (element.hasClass('ui-input')) {
+                        element.closest('.ui-field').append(error);
+                      }
+                    },
+                  });
+                });
+              })
+            })
+          </script>
         </div>
       </div>
     </div>

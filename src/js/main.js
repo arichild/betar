@@ -286,6 +286,15 @@ $( document ).ready(function() {
     });
 
     main.on('resize', function () {
+      if (window.innerWidth > 1024) {
+        const heightInfoBlock = document.querySelector('.card-info').offsetHeight
+
+        // main.options = {
+        //   fixedHeight: heightInfoBlock,
+        //   // width: 'auto'
+        // }
+      }
+
       if (window.innerWidth > 768) {
         let mainHeight = mainCarousel.querySelector('.splide__track').offsetHeight;
 
@@ -322,20 +331,18 @@ $( document ).ready(function() {
 
 
     const allSliders = document.querySelectorAll('.main-carousel li.splide__slide').length - 1
-    thumbnails.on("active",function(e){
+    thumbnails.on("active",function(e) {
       const prev = thumbnails.Components.Arrows.arrows.prev
       const next = thumbnails.Components.Arrows.arrows.next
 
-      if(e.index === allSliders) {
-         next.classList.add('hide')
-         prev.classList.add('active')
-      }
-
-      if(e.index === 0) {
-        if(next && next.classList.contains('hide')) {
-          next.classList.remove('hide')
+      if(window.innerWidth <= 768) {
+        if(e.index === allSliders) {
+          next.classList.add('hide')
+          prev.classList.add('active')
         }
-        if(prev && prev.classList.contains('active')) {
+
+        if(e.index === 0) {
+          next.classList.remove('hide')
           prev.classList.remove('active')
         }
       }
@@ -718,6 +725,32 @@ $( document ).ready(function() {
         })
 
         block.classList.add('active')
+      })
+    })
+  }
+
+  // cart delete item
+  const btnClear = document.querySelector('.cart-clear')
+  const allItems = document.querySelectorAll('.cart-item')
+
+  if(btnClear) {
+    btnClear.addEventListener('click', () => {
+      if(allItems.length) {
+        allItems.forEach(item => {
+          item.remove()
+        })
+      }
+    })
+  }
+
+  if(allItems.length) {
+    allItems.forEach(item => {
+      const btnRemove = item.querySelector('.cart-item-delete')
+
+      btnRemove.addEventListener('click', (e) => {
+        const item = btnRemove.closest('.cart-item')
+
+        item.remove()
       })
     })
   }
