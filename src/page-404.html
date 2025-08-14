@@ -32,14 +32,12 @@
                 const searchBlock = document.querySelector('.header-middle-search');
                 const headerMiddleBlock = document.querySelector('.header-middle-center');
 
-                console.log(searchBtn)
-
                 if (searchBtn) {
                     const searchResult = document.querySelector('.result')
                     searchBtn.addEventListener('click', () => {
-                      searchResult.classList.toggle('active')
-                      searchBlock.classList.toggle('active')
-                      headerMiddleBlock.classList.toggle('active')
+                      searchResult.classList.add('active')
+                      searchBlock.classList.add('active')
+                      headerMiddleBlock.classList.add('active')
                       searchInput.focus()
                     });
                   }

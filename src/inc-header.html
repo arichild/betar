@@ -477,6 +477,7 @@
               <script>
                 document.addEventListener("DOMContentLoaded", (event) => {
                   $(document).ready(function () {
+                    const $searchBtn = $('.ui-info-search button');
                     const $searchInput = $('.header-middle-search input');
                     const $searchBlock = $('.header-middle-search');
                     const $headerMiddleBlock = $('.header-middle-center');
@@ -508,8 +509,9 @@
                       const $target = $(event.target);
                       const isInsideSearch = $target.closest($searchBlock).length > 0;
                       const isInsideResult = $target.closest($searchResult).length > 0;
+                      const isSearchBtn = $target.closest($searchBtn).length > 0;
 
-                      if (!isInsideSearch && !isInsideResult) {
+                      if (!isInsideSearch && !isInsideResult && !isSearchBtn) {
                         // $html.removeClass('active');
                         $html.css({
                           'overflow': '',
