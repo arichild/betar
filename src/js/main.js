@@ -1,13 +1,5 @@
 $( document ).ready(function() {
   // select2
-  $location =  $('.ui-select-location').select2({
-    minimumResultsForSearch: -1,
-    dropdownAutoWidth : true,
-    width: 'auto',
-  });
-  $location.data('select2').$dropdown.addClass('select-location');
-
-
   $('.ui-select').select2({
     minimumResultsForSearch: -1,
   });
