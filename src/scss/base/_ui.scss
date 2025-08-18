@@ -746,6 +746,11 @@ span.error {
   }
 }
 
+textarea.ui-input {
+  padding-top: 16px;
+  resize: vertical;
+}
+
 .ui-fields {
   margin-bottom: 10px;
 
@@ -1777,6 +1782,10 @@ svg {
     }
   }
 
+  textarea.ui-input {
+    padding-top: 12px;
+  }
+
   .ui-input {
     height: 45px;
   }
@@ -2276,6 +2285,10 @@ svg {
 
   .ui-checkbox a {
     font-size: 11px;
+  }
+
+  textarea.ui-input {
+    padding-top: 10px;
   }
 
   .ui-input {

@@ -132,6 +132,13 @@
     }
   }
 
+  textarea.ui-input {
+    @media(min-width: 1024.99px) {
+      height: 49px;
+      padding-top: 14px;
+    }
+  }
+
   .ui-field {
     margin-bottom: 10px;
   }
