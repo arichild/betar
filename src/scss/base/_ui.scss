@@ -554,6 +554,11 @@
 
 .ui-breadcrumbs {
   padding: 40px 0;
+  margin-bottom: 0;
+
+  li {
+    display: inline-block;
+  }
 
   @media(min-width: 1440.99px) {
     &.mb-40 {
@@ -563,7 +568,7 @@
 
   &-link {
     color: #A5A8AD;
-    padding-right: 17px;
+    padding-right: 21px;
     transition: opacity .2s ease-in-out;
     position: relative;
     font-weight: 400;
@@ -589,7 +594,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 1.2;
-    color: #1D1E20;
+    // color: #1D1E20;
   }
 }
 
@@ -2052,7 +2057,7 @@ svg {
 
     &-link {
       font-size: 12px;
-      padding-right: 13px;
+      padding-right: 17px;
 
       &::after {
         margin: 0 6px;

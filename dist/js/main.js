@@ -783,14 +783,18 @@ $( document ).ready(function() {
           profilePosition(item)
         })
 
+        window.addEventListener('scroll', () => {
+          profilePosition(item)
+        })
+
         profileModal.classList.add('active')
-        html.classList.add('active')
+        // html.classList.add('active')
       })
     })
 
     $('.profile-modal-close, .profile-modal-wrapper').on('click', () => {
       $('.profile-modal').removeClass('active')
-      $('html').removeClass('active')
+      // $('html').removeClass('active')
     });
   }
 })
