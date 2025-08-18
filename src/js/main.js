@@ -44,6 +44,14 @@ $( document ).ready(function() {
     return false;
   });
 
+  // gallery
+  $('.certificate-gallery').magnificPopup({
+    type: 'image',
+    gallery: {
+      enabled: true,
+      arrowMarkup: "<button title='%title%' type='button' class='mfp-arrow mfp-arrow-%dir%'><svg width='8' height='16' viewBox='0 0 8 16' fill='none' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' clip-rule='evenodd' d='M0.709326 0.553152C0.278064 0.898162 0.208143 1.52745 0.553152 1.95872L5.38673 8.00069L0.553152 14.0427C0.208142 14.4739 0.278064 15.1032 0.709326 15.4482C1.14059 15.7932 1.76988 15.7233 2.11489 15.2921L7.44822 8.62538C7.7404 8.26017 7.7404 7.74121 7.44822 7.37599L2.11489 0.709326C1.76988 0.278064 1.14059 0.208143 0.709326 0.553152Z' /></svg></button>"
+    }
+  });
 
   // validate
   $.validator.messages.required = 'Пожалуйста, введите данные';

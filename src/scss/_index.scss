@@ -692,8 +692,9 @@
       .ui-btn {
         height: 52px;
         line-height: 50px;
-        max-width: 148px;
-        width: 100%;
+        // max-width: 148px;
+        // width: 100%;
+        padding: 0 34px;
       }
     }
   }
