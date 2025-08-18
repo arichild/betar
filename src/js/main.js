@@ -754,6 +754,45 @@ $( document ).ready(function() {
       })
     })
   }
+
+  // show profile
+  const allBtn = document.querySelectorAll('.profile-btn')
+  const profileModal = document.querySelector('.profile-modal')
+  const html = document.documentElement
+
+  if(allBtn.length && profileModal) {
+    function profilePosition(item) {
+      if(window.innerWidth > 768) {
+        const leftCoord = item.getBoundingClientRect().left
+        const topCoord = item.getBoundingClientRect().top
+
+        profileModal.style.left = leftCoord + 'px'
+        profileModal.style.top = topCoord + 'px'
+      } else {
+        profileModal.style.top = 'auto'
+        profileModal.style.left = 0 + 'px'
+        profileModal.style.bottom = 0 + 'px'
+      }
+    }
+
+    allBtn.forEach(item => {
+      item.addEventListener('click', (e) => {
+        profilePosition(item)
+
+        window.addEventListener('resize', () => {
+          profilePosition(item)
+        })
+
+        profileModal.classList.add('active')
+        html.classList.add('active')
+      })
+    })
+
+    $('.profile-modal-close, .profile-modal-wrapper').on('click', () => {
+      $('.profile-modal').removeClass('active')
+      $('html').removeClass('active')
+    });
+  }
 })
 
 function showPopup() {
