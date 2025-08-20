@@ -134,7 +134,8 @@
 
   textarea.ui-input {
     @media(min-width: 1024.99px) {
-      height: 49px;
+      // height: 49px;
+      height: auto;
       padding-top: 14px;
     }
   }
