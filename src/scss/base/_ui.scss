@@ -7,7 +7,7 @@
 
 .my-mfp-zoom-in.mfp-removing .mfp-anim { transform: scale(0.75); opacity: 0; }
 
-.mfp-bg { opacity: 0; transform: scale(0.92); transition: transform .5s, opacity .5s; }
+.mfp-bg { opacity: 0; transform: scale(1); transition: transform .5s, opacity .5s; }
 
 .mfp-bg.mfp-ready { transform: scale(1); opacity: 0.7; }
 
@@ -23,6 +23,7 @@
 .mfp-bg {
   position: fixed!important;
   top: 0!important;
+  left: 0 !important;
   height: 100%!important;
 }
 

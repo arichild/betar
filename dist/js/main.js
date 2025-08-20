@@ -17,7 +17,7 @@ $( document ).ready(function() {
       items: { src: a.attr("data-href") },
       type: "ajax",
       overflowY: "scroll",
-      removalDelay: 300,
+      // removalDelay: 300,
       mainClass: 'my-mfp-zoom-in',
       ajax: {
         tError: "Error. Not valid url",
