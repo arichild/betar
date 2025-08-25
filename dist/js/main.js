@@ -801,8 +801,7 @@ $( document ).ready(function() {
   // sticky block для оформления заказа
   const stickyCard = document.querySelector('#sticky-block')
   const parentBlock = document.querySelector('#sticky-breackpoint')
-  if (stickyCard) {
-
+  if (stickyCard && parentBlock) {
     function flipOrSticky() {
       const box = parentBlock.getBoundingClientRect()
       const stickyBox = stickyCard.getBoundingClientRect()
