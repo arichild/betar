@@ -797,6 +797,36 @@ $( document ).ready(function() {
       // $('html').removeClass('active')
     });
   }
+
+  // sticky block для оформления заказа
+  const stickyCard = document.querySelector('#sticky-block')
+  const parentBlock = document.querySelector('#sticky-breackpoint')
+  if (stickyCard) {
+
+    function flipOrSticky() {
+      const box = parentBlock.getBoundingClientRect()
+      const stickyBox = stickyCard.getBoundingClientRect()
+      const boxTop = box.top
+      const boxBottom = box.bottom
+      const stickyBottom = stickyBox.height
+      const py = window.pageYOffset
+
+      if (py > boxTop + py - 112) {
+        if (py < (boxBottom + py - stickyBottom - 172)) {
+          stickyCard.classList.add("sticky-box");
+          stickyCard.classList.remove("card-breackpoint-flipbottom");
+        } else {
+          stickyCard.classList.remove("sticky-box");
+          stickyCard.classList.add("card-breackpoint-flipbottom");
+        }
+      } else {
+        stickyCard.classList.remove("sticky-box", "card-breackpoint-flipbottom");
+      }
+    }
+
+    window.addEventListener("scroll", flipOrSticky);
+    window.addEventListener("load", flipOrSticky);
+  }
 })
 
 function showPopup() {
