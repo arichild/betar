@@ -826,6 +826,23 @@ $( document ).ready(function() {
     window.addEventListener("scroll", flipOrSticky);
     window.addEventListener("load", flipOrSticky);
   }
+
+  // cookie
+  const cookies = document.querySelector('.cookie')
+	const cookiesBtn = document.querySelector('.cookie-btn')
+
+	if (cookies && cookiesBtn) {
+    const isShowedCookies = localStorage.getItem('isShowedCookies')
+
+		if (!isShowedCookies) cookies.classList.add('active')
+
+		if (cookiesBtn) {
+			cookiesBtn.addEventListener('click', () => {
+				localStorage.setItem('isShowedCookies', 1)
+        cookies.classList.remove('active')
+			})
+		}
+	}
 })
 
 function showPopup() {
