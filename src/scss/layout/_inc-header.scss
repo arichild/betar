@@ -131,6 +131,8 @@
       display: flex;
       align-items: center;
       gap: 0 14px;
+      font-size: 15px;
+      line-height: 1.4;
 
       // img {
       //   position: absolute;
@@ -278,6 +280,16 @@
       cursor: pointer;
 
       &:hover {
+        border-color: #2D88D6;
+        background-color: #fff;
+        color: #2D88D6;
+
+        svg {
+          fill: #2D88D6;
+        }
+      }
+
+      &.active {
         border-color: #2D88D6;
         background-color: #fff;
         color: #2D88D6;
@@ -689,6 +701,7 @@
 
         &-location {
           gap: 0 8px;
+          font-size: 12px;
 
           select {
             font-size: 12px;

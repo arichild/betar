@@ -596,11 +596,13 @@ $( document ).ready(function() {
       !$catalog.is(e.target) && $catalog.has(e.target).length === 0
     ) {
       $menu.removeClass('open');
+      $('.header-middle-catalog').removeClass('active');
     }
   });
 
   $('.header-middle-catalog').on('click', () => {
     $('.menu').toggleClass('open')
+    $('.header-middle-catalog').toggleClass('active')
     // $('html').toggleClass('active')
   });
 
