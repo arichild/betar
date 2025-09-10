@@ -485,6 +485,7 @@
     overflow: hidden;
     margin-bottom: 20px;
     gap: 20px 0;
+    cursor: pointer;
 
     &.grey {
       background-color: #F7F7F7;
@@ -2617,4 +2618,8 @@ svg {
   color: #fff;
   opacity: 1;
   transition: opacity .2s ease;
+}
+
+input:focus {
+  caret-color: #2d88d6; /* Задаёт цвет мигающей каретки */
 }

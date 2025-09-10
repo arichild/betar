@@ -232,7 +232,7 @@ $( document ).ready(function() {
     new Splide(newsSlider, {
       perPage: 3,
       gap: 20,
-      arrows: false,
+      // arrows: false,
 
       breakpoints: {
         1024: {
@@ -244,6 +244,7 @@ $( document ).ready(function() {
         },
         576: {
           destroy: true,
+          arrows: false,
         },
       }
     }).mount();
@@ -865,6 +866,24 @@ $( document ).ready(function() {
 			})
 		}
 	}
+
+  // category card
+  $('.ui-catalog-card, .catalog-card').each(function() {
+    const $card = $(this);
+
+    $card.find('a').on('click', function(e) {
+      e.stopPropagation();
+      location.href = $(this).attr('href');
+      return false;
+    });
+
+    $card.on('click', function(e) {
+      const $detailLink = $(this).find('.ui-header-link');
+      if ($detailLink.length) {
+        location.href = $detailLink.attr('href');
+      }
+    });
+  });
 })
 
 function showPopup() {
