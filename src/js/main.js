@@ -164,6 +164,33 @@ $( document ).ready(function() {
     }
   });
 
+  // second search
+  const btnSecond = $('.search-input .search-icon .close')
+  const searcSecond = $('.search-input input')
+
+  searcSecond.on('input', function() {
+    let value = $(this).val()
+
+    if (value === '') {
+      btnSecond.removeClass('active')
+    } else {
+      btnSecond.addClass('active')
+    }
+  });
+
+  btnSecond.on('click', (e) => {
+    e.preventDefault();
+
+    searcSecond.val('')
+
+    if (searcSecond.val() === '') {
+      btnSecond.removeClass('active')
+    } else {
+      btnSecond.addClass('active')
+    }
+  });
+
+
   // splide
   const bransSlider = document.querySelector('.brands-splide')
   const certificateSlider = document.querySelector('.certificate-splide')
