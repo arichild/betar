@@ -2,6 +2,12 @@
   padding-top: 40px;
   padding-bottom: 80px;
 
+  @media(min-width: 576.99px) {
+    .ui-catalog .splide__track {
+      padding: 0 1px !important;
+    }
+  }
+
   &-block {
     display: flex;
     gap: 0 40px;

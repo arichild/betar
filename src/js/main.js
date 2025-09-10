@@ -868,7 +868,7 @@ $( document ).ready(function() {
 	}
 
   // category card
-  $('.ui-catalog-card, .catalog-card').each(function() {
+  $('.ui-catalog-card, .catalog-card, catalog-offer').each(function() {
     const $card = $(this);
 
     $card.find('a').on('click', function(e) {
@@ -876,6 +876,17 @@ $( document ).ready(function() {
       location.href = $(this).attr('href');
       return false;
     });
+
+    $card.on('click', function(e) {
+      const $detailLink = $(this).find('.ui-header-link');
+      if ($detailLink.length) {
+        location.href = $detailLink.attr('href');
+      }
+    });
+  });
+
+  $('.catalog-offer').each(function() {
+    const $card = $(this);
 
     $card.on('click', function(e) {
       const $detailLink = $(this).find('.ui-header-link');
