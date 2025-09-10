@@ -32,6 +32,9 @@
     &-left {
       max-width: 355px;
       flex: 0 0 355px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     &-center {
@@ -83,6 +86,11 @@
 
     &-logo {
       margin-bottom: 36px;
+      display: block;
+
+      &:hover {
+        color: #f7f7f7 !important;
+      }
 
       // span {
       //   display: block;
@@ -99,6 +107,7 @@
 
     .ui-btn {
       margin-bottom: 95px;
+      max-width: max-content;
     }
 
     &-location {
@@ -132,6 +141,22 @@
 
       &:hover {
         color: #F7F7F7;
+
+        svg {
+          fill: #F7F7F7;
+        }
+      }
+    }
+
+    .develop {
+      padding-left: 40px;
+      position: relative;
+
+      svg {
+        position: absolute;
+        left: 0;
+        fill: #A5A8AD;
+        transition: fill .2s ease;
       }
     }
 
@@ -176,6 +201,7 @@
       border: 1px solid #6A6B70;
       border-radius: 50%;
       position: relative;
+      transition: background-color .2s ease, border-color .2s ease;
 
       svg {
         position: absolute;
@@ -183,6 +209,16 @@
         top: 50%;
         transform: translate(-50%, -50%);
         fill: #F7F7F7;
+        transition: fill .2s ease;
+      }
+
+      &:hover {
+        background-color: #F7F7F7;
+        border-color: #F7F7F7;
+
+        svg {
+          fill: #1D1E20;
+        }
       }
     }
 

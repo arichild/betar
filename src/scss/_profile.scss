@@ -31,6 +31,13 @@
       .ui-fields {
         margin-bottom: 40px;
       }
+
+
+      .ui-input {
+        &:hover {
+          border-color: #cfd2d7 !important;
+        }
+      }
     }
 
     &-controls {

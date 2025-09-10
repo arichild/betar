@@ -65,22 +65,13 @@
     padding: 24px;
     background: #f7f7f7;
 
-    @media(min-width: 1024.99px) {
-      &.sticky-box {
-        position: fixed;
-        top: 120px !important;
-        max-width: 439px;
-      }
-      &.card-breackpoint-flipbottom {
-        position: absolute;
-        bottom: 80px;
-        max-width: 439px;
-      }
-    }
-
     .ui-btn {
       width: 100%;
       margin-bottom: 12px;
+
+      @media(min-width: 1024.99px) {
+        font-size: 15px;
+      }
 
       &:last-child {
         margin-bottom: 0;

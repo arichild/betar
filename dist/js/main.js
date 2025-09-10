@@ -252,7 +252,7 @@ $( document ).ready(function() {
   if(mainSlider) {
     new Splide(mainSlider, {
       perPage: 1,
-      autoplay: true,
+      // autoplay: true,
       type: 'loop',
       interval: 4500,
     }).mount();
@@ -313,6 +313,7 @@ $( document ).ready(function() {
       arrows: false,
       isNavigation: true,
       direction: 'ttb',
+      wheel: true,
 
       breakpoints: {
         1440: {
@@ -586,14 +587,16 @@ $( document ).ready(function() {
   const menu = document.querySelector('.menu');
 
   $(document).on('click', function (e) {
-    const $menu = $('.menu')
+    const $menu = $('.menu-block')
     const $submenu = $('.menu-submenu')
     const $catalog = $('.header-middle-catalog')
+    const $wrapper = $('.menu-wrapper')
 
     if (
       !$menu.is(e.target) && $menu.has(e.target).length === 0 &&
       !$submenu.is(e.target) && $submenu.has(e.target).length === 0 &&
-      !$catalog.is(e.target) && $catalog.has(e.target).length === 0
+      !$catalog.is(e.target) && $catalog.has(e.target).length === 0 ||
+      $wrapper.is(e.target) && $wrapper.has(e.target).length === 0
     ) {
       $menu.removeClass('open');
       $('.header-middle-catalog').removeClass('active');
@@ -601,7 +604,7 @@ $( document ).ready(function() {
   });
 
   $('.header-middle-catalog').on('click', () => {
-    $('.menu').toggleClass('open')
+    $('.menu-block').toggleClass('open')
     $('.header-middle-catalog').toggleClass('active')
     // $('html').toggleClass('active')
   });
@@ -624,6 +627,9 @@ $( document ).ready(function() {
             // Открыть только текущее
             menu.classList.add('active');
             hasSubmenu.classList.add('active');
+          } else {
+              menu.classList.remove('active');
+            hasSubmenu.classList.remove('active');
           }
         })
       } else {
@@ -673,6 +679,20 @@ $( document ).ready(function() {
         const copyText = parent.querySelector('span').textContent
 
         navigator.clipboard.writeText(copyText);
+
+        // создаём подсказку
+        const tooltip = document.createElement('div');
+        tooltip.className = 'tooltip';
+        tooltip.textContent = 'Скопировано!';
+        parent.style.position = 'relative';
+
+        document.body.appendChild(tooltip);
+
+        // удаляем через 1.5 сек
+        setTimeout(() => {
+          tooltip.style.opacity = '0';
+          setTimeout(() => tooltip.remove(), 200);
+        }, 1500);
       })
     })
   }

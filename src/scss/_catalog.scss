@@ -13,6 +13,7 @@
     border-radius: 16px;
     position: relative;
     padding: 40px;
+    display: block;
 
     &.orange {
       background-color: #FFF0EB;
@@ -30,6 +31,11 @@
       line-height: 1.1;
       letter-spacing: -0.02em;
       margin-bottom: 12px;
+      transition: color .2s ease;
+
+      &:hover {
+        color: #a5a8ad;
+      }
     }
 
     a {

@@ -609,6 +609,10 @@
   padding-bottom: 103px;
   position: relative;
 
+  br {
+    display: none;
+  }
+
   &-control {
     position: absolute;
     width: 156px;
@@ -1761,9 +1765,17 @@
     padding: 0;
     padding-bottom: 32px;
 
+    br {
+      display: block;
+    }
+
+    h2 {
+      text-wrap: balance;
+    }
+
     &-content {
       left: 10px;
-      max-width: none;
+      max-width: calc(100% - 20px);
     }
 
     &-splide {
